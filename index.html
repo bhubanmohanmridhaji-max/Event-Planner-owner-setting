@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parivar Cafe – Vegetarian Banquet Menu</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{--g:#0b3d2e;--g2:#1b5a43;--gold:#d4af5f;--gd:#8a6a22;--cream:#f7f3e8;--ink:#1c2a22;--line:#dccb94;--err:#b3261e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Lora,Georgia,serif;line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:16px 16px 120px}
+header{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:left;padding:12px 0 4px}
+.logo{height:84px;width:auto;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:6px;display:block}
+#flogo{margin:0 auto 12px}
+header h1{font:700 clamp(2rem,6vw,3.2rem) 'Playfair Display',serif;color:var(--g);margin:0}
+header p{margin:0;font-style:italic;color:var(--g2)}
+.banner{background:linear-gradient(135deg,#0b3d2e,#15593f);border:3px solid var(--gold);border-radius:28px;text-align:center;padding:18px 12px;margin:16px 0}
+.banner h2{margin:0;font:700 clamp(1.4rem,5vw,2.6rem) 'Playfair Display',serif;color:var(--gold);letter-spacing:.04em}
+.banner span{color:#fff;letter-spacing:.3em;font-size:.85rem}
+.panel{border:1.5px solid var(--line);border-radius:10px;padding:14px;margin-bottom:16px;background:#fffefa}
+.tag{display:inline-block;background:var(--g);color:#fff;font:600 1rem 'Playfair Display',serif;padding:6px 16px;border-radius:0 18px 18px 0;margin:-14px 0 12px -14px}
+.tag small{color:var(--gold);font-family:Lora,serif;font-weight:400;margin-left:6px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px 18px}
+label.f{display:flex;flex-direction:column;font-size:.9rem;font-weight:600;color:var(--g)}
+label.f select{font:inherit;font-weight:400;color:var(--ink);border:0;border-bottom:1.5px solid var(--g2);background:transparent;padding:6px 0;outline:none;border-radius:0;-webkit-appearance:none;appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--g) 50%),linear-gradient(135deg,var(--g) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+label.f select:focus{border-bottom-color:var(--gold);box-shadow:0 2px 0 var(--gold)}
+label.f input,label.f textarea{font:inherit;font-weight:400;color:var(--ink);border:0;border-bottom:1.5px solid var(--g2);background:transparent;padding:6px 2px;outline:none;border-radius:0}
+label.f input:focus,label.f textarea:focus{border-bottom-color:var(--gold);box-shadow:0 2px 0 var(--gold)}
+.bad{color:var(--err)!important}.bad input{border-bottom-color:var(--err)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-bottom:16px}
+.cat{border:1.5px solid var(--line);border-radius:10px;padding:14px;background:#fffefa;transition:border-color .2s,background .2s}
+.cat.done{border-color:var(--g2);background:#f3f8e8}
+.cat.bad{border-color:var(--err)}
+.cat .tag{font-size:.95rem}
+.opt{display:flex;align-items:center;gap:12px;padding:10px 6px;cursor:pointer;border-radius:6px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.opt:hover{background:#f6edc4}
+.opt input{-webkit-appearance:none;appearance:none;width:22px;height:22px;border:1.8px solid var(--g);border-radius:3px;background:#fff;flex:none;display:grid;place-content:center;margin:0;cursor:pointer}
+.opt input:checked{background:var(--g) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3.2L13 4.8' fill='none' stroke='%23e0b84a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.opt input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt.fixed{cursor:default}.opt.fixed:hover{background:none}
+.common{display:flex;flex-wrap:wrap;gap:6px 28px}
+textarea#notes{width:100%;min-height:80px;border:1.5px solid var(--line);border-radius:8px;background:#fff;font:inherit;padding:8px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--g);color:#fff;border-top:3px solid var(--gold);padding:10px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;z-index:5}
+.bar .msg{font-size:.95rem}
+.bar .msg b{color:var(--gold);font-size:1.15rem}
+.meter{height:6px;background:#ffffff33;border-radius:3px;width:160px;overflow:hidden;margin-top:4px}
+.meter i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+button.btn{font:600 1rem 'Playfair Display',serif;background:var(--gold);color:var(--g);border:0;border-radius:24px;padding:10px 24px;cursor:pointer}
+button.btn:hover{filter:brightness(1.08)}
+button.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+button.ghost{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
+.hide{display:none!important}
+#rate{text-align:center}
+#rate .big{font:700 2.4rem 'Playfair Display',serif;color:var(--g)}
+/* full-screen guest menu & payment */
+#full,#disp,#settings{position:fixed;inset:0;background:#0a2e23;z-index:20;overflow:auto;padding:18px 12px 40px}
+#disp{z-index:30}
+#settings{z-index:35}
+.paper{max-width:600px;margin:0 auto;background:#fffdf7;color:var(--ink);border-radius:6px;box-shadow:0 12px 40px #0009;overflow:hidden;border-top:6px solid var(--gold)}
+.ph{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;padding:16px 18px;border-bottom:1px solid #e6dcc0}
+.ph .logo{height:56px;border:0;padding:0;border-radius:0;margin:0}
+.ph h2{font:700 1.55rem 'Playfair Display',serif;color:var(--g);margin:0;line-height:1.1}
+.ph small{font-style:italic;color:var(--g2);font-size:.82rem}
+.ph .ref{margin-left:auto;text-align:right;white-space:nowrap;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#7a6a3a}
+.ph .ref b{display:block;font-size:.92rem;color:var(--g);letter-spacing:.03em;text-transform:none}
+.band{background:linear-gradient(135deg,var(--g),var(--gq2,#15593f));color:var(--on,#ecd48f);text-align:center;padding:10px 8px;font:700 1.1rem 'Playfair Display',serif;letter-spacing:.14em}
+.band small{display:block;font:400 .62rem Lora,serif;letter-spacing:.35em;color:var(--onw,#fff);margin-top:3px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:9px 16px;padding:14px 18px;background:#f6f1e2;font-size:.84rem}
+.info span{display:block;font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:#7a6a3a}
+.info b{font-weight:600;color:var(--g);word-break:break-word}
+.sec{padding:16px 18px 0}
+.sec h3{font:700 .9rem 'Playfair Display',serif;color:var(--g);letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.sec h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mc{border:1px solid #e6dcc0;border-left:3px solid var(--gold);border-radius:4px;padding:7px 10px;background:#fff}
+.mc h4{margin:0 0 2px;font:600 .62rem Lora,serif;letter-spacing:.1em;text-transform:uppercase;color:var(--gd)}
+.mc ul{list-style:none;margin:0;padding:0}
+.mc li{font-size:.84rem;font-weight:600;color:var(--g);line-height:1.3;padding:1px 0}
+.mc em{font-style:normal;font-size:.64rem;color:#7a5200;background:#fbefcf;border-radius:8px;padding:1px 6px;margin-left:5px;white-space:nowrap}
+.cm{margin:10px 18px 0;padding:8px 10px;background:var(--g);color:var(--onw,#fff);border-radius:4px;font-size:.78rem;text-align:center}
+.cm b{color:var(--on,#ecd48f);font-weight:600}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.hero div{border:1.5px solid var(--gold);border-radius:6px;padding:8px 12px;text-align:center}
+.hero small{display:block;font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:#7a6a3a}
+.hero b{display:block;font:700 1.9rem 'Playfair Display',serif;color:var(--g);line-height:1.2}
+.hero i{display:block;font-style:normal;font-size:.7rem;color:#5b6b60}
+.paytbl{width:100%;border-collapse:collapse;font-size:.88rem}
+.paytbl td{padding:6px 0;border-bottom:1px dashed #e2d6b0}
+.paytbl td:last-child{text-align:right;font-weight:600;white-space:nowrap;padding-left:10px}
+.paytbl tr.tot td{border-bottom:0;border-top:2px solid var(--g);font:700 1.1rem 'Playfair Display',serif;color:var(--g);padding-top:9px}
+.pbox{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.pbox div{border-radius:6px;padding:10px 10px;text-align:center}
+.pbox .a{background:var(--g);color:var(--onw,#fff)}
+.pbox .b{background:#f6f1e2;border:1.5px solid var(--gold);color:var(--g)}
+.pbox small{display:block;font-size:.64rem;letter-spacing:.07em;text-transform:uppercase;opacity:.9}
+.pbox b{display:block;font:700 1.55rem 'Playfair Display',serif;margin:2px 0}
+.pbox .a b{color:var(--on,#ecd48f)}
+.pbox i{display:block;font-style:normal;font-size:.7rem}
+.fine{font-size:.75rem;color:#44574c;padding:14px 18px 18px;line-height:1.5}
+.fine p{margin:0 0 5px}
+.acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px auto 0;max-width:600px}
+.bk{display:flex;gap:8px 10px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1px solid;border-left-width:7px;border-radius:8px;padding:10px 12px;margin-bottom:10px}
+.bk.red{border-color:#c62828;background:#fdecea}
+.bk.amber{border-color:#d98300;background:#fff3dc}
+.bk.green{border-color:#1b7f3b;background:#e4f4e9}
+.bk small{display:block;color:#44574c;font-size:.82rem}
+.bk button{font:600 .85rem Lora,serif;border:1.5px solid var(--g);background:#fff;color:var(--g);border-radius:16px;padding:5px 14px;cursor:pointer;margin:2px 0 2px 6px}
+.bk button.del{border-color:var(--err);color:var(--err)}
+.bk button.paybtn{background:var(--g);color:#ecd48f}
+.st{display:inline-block;font:700 .66rem Lora,serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;border-radius:10px;padding:2px 9px;margin-left:6px;vertical-align:middle}
+.st.red{background:#c62828}.st.amber{background:#d98300}.st.green{background:#1b7f3b}
+.payform{flex-basis:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;background:#ffffffb0;border-radius:8px;padding:10px}
+.payform label{font-size:.75rem;font-weight:600;color:var(--g);display:flex;flex-direction:column}
+.payform input,.payform select{font:inherit;font-weight:400;padding:5px;border:1.5px solid var(--g2);border-radius:6px;background:#fff}
+.payform .row{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.pays{flex-basis:100%;margin:0;padding-left:18px;font-size:.8rem;color:#2c3f35}
+#shareMsg{margin-top:12px;font-size:.9rem;color:#f0dfae;text-align:center}
+.terms{margin:0;padding-left:20px}.terms li{margin:3px 0}
+.note p{margin:0 0 6px}.note p:last-child{margin:0}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.plan{position:relative;display:block;border:2px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;background:#fff;-webkit-tap-highlight-color:transparent}
+.plan.sel{border-color:var(--g);background:#f3f8e8;box-shadow:0 0 0 2px var(--gold)}
+.plan:focus-within{outline:3px solid var(--gold);outline-offset:2px}
+.plan input{position:absolute;opacity:0;pointer-events:none}
+.plan b{display:block;font:700 1.15rem 'Playfair Display',serif;color:var(--g)}
+.plan span{font-size:.88rem;color:#44574c}
+.xtra{margin-top:6px;font-size:.85rem;font-weight:600;color:var(--gd)}
+.sessh{background:linear-gradient(135deg,#0b3d2e,#15593f);color:#ecd48f;font:700 1.15rem 'Playfair Display',serif;letter-spacing:.06em;padding:10px 16px;border-radius:10px;margin:0 0 14px}
+.sessh small{color:#fff;font:400 .8rem Lora,serif;margin-left:8px;letter-spacing:0}
+.plan.sel::after{content:"Selected";position:absolute;top:8px;right:10px;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--g);padding:2px 8px;border-radius:10px}
+.plan.off{opacity:.55;cursor:not-allowed;background:#f1ede0}
+.panel.warn{border-color:var(--err);box-shadow:0 0 0 1px var(--err)}
+.tg{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--g);border-radius:30px;overflow:hidden}
+.seg{position:relative;text-align:center;padding:12px 8px;font-weight:600;color:var(--g);cursor:pointer;background:#fff;-webkit-tap-highlight-color:transparent}
+.seg+.seg{border-left:2px solid var(--g)}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg.sel{background:var(--g);color:#ecd48f}
+.seg:focus-within{outline:3px solid var(--gold);outline-offset:-3px}
+h5.sh{margin:14px 0 8px;font:700 .78rem Lora,serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gd)}
+h5.sh:first-child{margin-top:0}
+.opt em.pm{font-style:normal;font-size:.68rem;color:#7a5200;background:#fbefcf;border-radius:8px;padding:1px 7px;margin-left:4px;white-space:nowrap}
+.paytbl tr.sub td{font-weight:700;color:var(--g);border-bottom:1.5px solid #cdbb85}
+.dt-wrap{overflow-x:auto;margin-bottom:6px}
+.dt{width:100%;border-collapse:collapse;font-size:.8rem}
+.dt th{background:var(--g);color:#ecd48f;text-align:left;padding:6px 8px;font-weight:600;white-space:nowrap}
+.dt td{padding:5px 8px;border-bottom:1px solid #e6dcc0;vertical-align:top;white-space:nowrap}
+.dt td.n{text-align:right;white-space:nowrap;font-weight:600;color:var(--g)}
+.dt td.pend{color:#a05a00;font-style:italic}
+.dt tr.tot td{border-top:2px solid var(--g);font-weight:700;color:var(--g)}
+.dh{padding:14px 18px;font-size:.84rem;line-height:1.6;background:#f6f1e2}
+.grp{grid-column:1/-1;font:700 1rem 'Playfair Display',serif;color:var(--g);border-bottom:2px solid var(--gold);padding-bottom:4px;margin-top:4px}
+.grp small{font:400 .8rem Lora,serif;color:#5b6b60;margin-left:8px}
+.topbar{position:sticky;top:0;z-index:5;display:flex;gap:12px;align-items:center;margin:-18px -12px 12px;padding:10px 12px;background:#0a2e23;color:#f0dfae;font-weight:600}
+.topbar .btn{padding:7px 16px;font-size:.9rem}
+.f2{display:flex;flex-direction:column;gap:6px;font-size:.9rem;font-weight:600;color:var(--g)}
+.cp{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:400}
+.cp input[type=color]{width:48px;height:36px;padding:0;border:1.5px solid var(--g2);border-radius:6px;background:#fff;cursor:pointer}
+.sw{width:32px;height:32px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--g2);cursor:pointer}
+.topbar input[type=color]{margin-left:auto;width:40px;height:32px;padding:0;border:1.5px solid #f0dfae;border-radius:6px;background:transparent;cursor:pointer}
+.bkbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+button.line{font:600 .9rem 'Playfair Display',serif;background:#fff;color:var(--g);border:1.5px solid var(--g);border-radius:20px;padding:8px 16px;cursor:pointer}
+.bkbar select{font:inherit;padding:7px 8px;border:1.5px solid var(--g2);border-radius:8px;background:#fff;max-width:100%}
+#bkmsg{margin-top:8px;font-size:.88rem;color:var(--g)}
+#bkmsg a{color:var(--g);font-weight:600}
+.hfilter{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.hfilter select,.hfilter input{font:inherit;padding:7px 8px;border:1.5px solid var(--g2);border-radius:8px;background:#fff;min-width:0}
+.hfilter input{flex:1 1 160px}
+#hcount{font-size:.82rem;color:#5b6b60;margin-bottom:6px}
+.hy{display:flex;justify-content:space-between;align-items:baseline;font:700 1.1rem 'Playfair Display',serif;color:var(--g);border-bottom:2px solid var(--gold);margin:14px 0 6px;padding-bottom:3px}
+.hy small{font:400 .8rem Lora,serif;color:#5b6b60}
+details.hm{border:1px solid var(--line);border-radius:8px;margin:6px 0;background:#fffefa}
+details.hm>summary{cursor:pointer;padding:9px 12px;font-weight:600;color:var(--g);font-size:.9rem}
+details.hm>.bk{margin:0 8px 8px}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:.88rem;margin-top:10px}
+.chk input{margin-top:3px;width:18px;height:18px;flex:none}
+#bkinfo{font-size:.82rem;color:#44574c;margin-top:6px}
+.snap{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;border-bottom:1px dashed var(--line);padding:6px 0;font-size:.86rem}
+.snap button.line{padding:4px 12px;font-size:.8rem;margin-left:4px}
+#snapbox summary{cursor:pointer;font-weight:600;color:var(--g);margin-top:8px;font-size:.9rem}
+@media print{.topbar{display:none!important}body *{visibility:hidden}#full,#full *{visibility:visible}#full{position:absolute;overflow:visible;background:#fff;padding:0}.paper{box-shadow:none}.acts{display:none}}
+@media print{body.pd *{visibility:hidden}body.pd #disp,body.pd #disp *{visibility:visible}body.pd #disp{position:absolute;overflow:visible;background:#fff;padding:0}body.pd #full,body.pd #full *{visibility:hidden}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo" id="hlogo" src="logo.png" alt="Focus Prism logo">
+    <div>
+      <h1 id="orgname">Parivar Cafe</h1>
+      <p id="orgtag">Food for the Soul &middot; by Focus Prism</p>
+    </div>
+  </header>
+  <div class="banner"><h2>VEGETARIAN BANQUET MENU</h2><span>CELEBRATE &bull; CONNECT &bull; SAVOUR</span></div>
+ 
+  <form id="form" novalidate>
+    <section class="panel" aria-labelledby="cd">
+      <div class="tag" id="cd">Customer details</div>
+      <div class="fields">
+        <label class="f" id="l-date">Event date *<input type="date" id="date" required></label>
+        <label class="f" id="l-fp">FP ID (auto-generated)<input type="text" id="fp" readonly tabindex="-1" style="font-weight:600;color:var(--g);cursor:default"></label>
+        <label class="f" id="l-name">Name *<input type="text" id="name" required autocomplete="name"></label>
+        <label class="f" id="l-phone">Phone no. *<input type="tel" id="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile" required autocomplete="tel"></label>
+        <label class="f" id="l-org">Organisation<input type="text" id="org" autocomplete="organization"></label>
+        <label class="f" id="l-event">Event *<select id="event" required>
+          <option value="">Select event</option>
+          <option>Birthday</option>
+          <option>Anniversary</option>
+          <option>Baby Shower</option>
+          <option>Custom Choice</option>
+        </select></label>
+        <label class="f hide" id="l-eventx">Your event (Custom Choice) *<input type="text" id="eventx" placeholder="e.g. Farewell, Get-together"></label>
+        <label class="f">Email (optional)<input type="email" id="email" autocomplete="email"></label>
+        <label class="f" style="grid-column:1/-1">Special requests<input type="text" id="req"></label>
+        <div class="f2" style="grid-column:1/-1" id="cpbox">Quotation and PDF colour
+          <div class="cp"><input type="color" id="qcolor" value="#0b3d2e" aria-label="Pick the quotation colour">
+            <button type="button" class="sw" data-c="#0b3d2e" style="background:#0b3d2e" aria-label="Emerald"></button>
+            <button type="button" class="sw" data-c="#12355b" style="background:#12355b" aria-label="Navy"></button>
+            <button type="button" class="sw" data-c="#7a1f2b" style="background:#7a1f2b" aria-label="Maroon"></button>
+            <button type="button" class="sw" data-c="#4a2c7a" style="background:#4a2c7a" aria-label="Purple"></button>
+            <button type="button" class="sw" data-c="#b4501d" style="background:#b4501d" aria-label="Terracotta"></button>
+            <button type="button" class="sw" data-c="#2b2b2b" style="background:#2b2b2b" aria-label="Charcoal"></button></div></div>
+      </div>
+    </section>
+ 
+    <section class="panel" id="sessP" aria-labelledby="ss">
+      <div class="tag" id="ss">Choose your sessions <small>tick any or all</small></div>
+      <div class="plans" id="sessions"></div>
+      <p style="margin:10px 0 0;font-size:.9rem">The menu for each session you tick opens below. Hall charges are added once, however many sessions you book.</p>
+    </section>
+ 
+    <div id="blocks"></div>
+ 
+    <section class="panel">
+      <div class="tag">Additional notes <small>allergies / special preferences / others</small></div>
+      <textarea id="notes" aria-label="Additional notes"></textarea>
+    </section>
+ 
+    <section class="panel" id="terms" aria-labelledby="tt">
+      <div class="tag" id="tt">Booking &amp; cancellation terms</div>
+      <ul class="terms">
+        <li>The rate per plate depends on the sessions and menu you choose. It is shown, including tax, once your menu is complete.</li>
+        <li>Extra dishes in some sections, costly cookies, extra snacks and special items are charged extra per plate. All charges are shown in your quotation.</li>
+        <li>Hall charges of ₹3,000 are added once to the total amount payable, however many sessions are booked.</li>
+        <li>To confirm the booking, pay an advance of 75% of the total amount. The full amount must be paid before the event.</li>
+        <li><b>Cancellation cannot be done in the last 3 days before the date of the event.</b></li>
+        <li><b>If the booking is cancelled, only 25% of the total amount is payable.</b></li>
+      </ul>
+    </section>
+ 
+  </form>
+ 
+  <section class="panel" id="saved" aria-labelledby="sv">
+    <div class="tag" id="sv">Saved bookings <small>stored on this device</small></div>
+    <div class="hfilter">
+      <select id="hy" aria-label="Year"><option value="">All years</option></select>
+      <select id="hm" aria-label="Month"><option value="">All months</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select>
+      <select id="hs" aria-label="Payment status"><option value="">Any payment status</option><option value="red">Unpaid / advance pending</option><option value="amber">Advance paid</option><option value="green">Fully paid</option></select>
+      <input id="hq" type="search" placeholder="Search name, FP ID, phone, event" aria-label="Search">
+      <button type="button" class="line" id="hclear">Clear</button>
+    </div>
+    <div id="hcount"></div>
+    <div id="bklist"></div>
+    <button type="button" class="btn" id="newbk" style="margin-top:8px">Start new booking</button>
+    <div class="bkbar">
+      <button type="button" class="line" id="bkbackup">Backup bookings</button>
+      <button type="button" class="line hide" id="bkshare">Share backup</button>
+      <button type="button" class="line" id="bkrestore">Restore from backup</button>
+      <select id="bkmode" aria-label="How to restore"><option value="merge">Add to the bookings on this device</option><option value="replace">Replace all bookings on this device</option></select>
+      <input type="file" id="bkfile" accept=".json,application/json" class="hide">
+    </div>
+    <div id="bkmsg" role="status"></div>
+    <label class="chk"><input type="checkbox" id="bkauto"> <span>Also download a backup file automatically every midnight (it runs while this page is open, or the next time it is opened)</span></label>
+    <div id="bkinfo"></div>
+    <details id="snapbox"><summary>Daily backups kept on this device</summary><div id="snaplist"></div></details>
+  </section>
+</div>
+ 
+<p style="text-align:center;margin:0 0 90px"><button type="button" class="line" id="opensettings">Owner settings</button></p>
+ 
+<div id="settings" class="hide" role="dialog" aria-modal="true" aria-labelledby="stt">
+  <div class="topbar"><button class="btn ghost" id="settop" type="button">← Back</button><span id="stt">Owner settings</span></div>
+  <div class="paper"><div class="sec" style="padding:16px 18px 20px">
+    <h3>Organisation</h3>
+    <div class="fields">
+      <label class="f">Organisation name<input id="set-org" type="text" autocomplete="off"></label>
+      <label class="f">Tagline (optional)<input id="set-tag" type="text" autocomplete="off"></label>
+    </div>
+    <div class="f2" style="margin-top:12px">Logo
+      <div class="cp"><img id="set-logo" class="logo" alt="Current logo"><input type="file" id="set-file" accept="image/*" class="hide">
+        <button class="line" id="set-pick" type="button">Choose a new logo</button><button class="line" id="set-logo-reset" type="button">Use the default logo</button></div></div>
+    <button class="btn" id="set-save-org" type="button" style="margin-top:14px">Save name and logo</button>
+ 
+    <h3 style="margin-top:24px">Add a menu item</h3>
+    <div class="fields">
+      <label class="f">Session<select id="ni-grp"><option value="bf">Breakfast</option><option value="tea">AMT and PMT</option><option value="full">Lunch and Dinner</option></select></label>
+      <label class="f">Section<select id="ni-cat"></select></label>
+      <label class="f" style="grid-column:1/-1">Item name<input id="ni-name" type="text" autocomplete="off"></label>
+      <label class="f">Extra charge for this item (₹ per plate, optional)<input id="ni-price" type="number" min="0" step="1" inputmode="numeric"></label>
+      <label class="f">Dispatch per portion<select id="ni-type"><option value="g">Grams</option><option value="ml">Millilitres</option><option value="pcs">Pieces</option><option value="pcsg">Pieces, with weight of each</option><option value="none">Not set yet</option></select></label>
+      <label class="f" id="ni-vl"><span id="ni-vlt">Grams per portion</span><input id="ni-val" type="number" min="0" step="any" inputmode="decimal"></label>
+      <label class="f hide" id="ni-el">Grams per piece<input id="ni-each" type="number" min="0" step="any" inputmode="decimal"></label>
+    </div>
+    <p style="font-size:.85rem;color:#44574c;margin:8px 0">The new item joins that section and follows its rate plan automatically (dishes included, and the price of each extra dish). Its dispatch quantity is worked out from the guests and the buffer. Lunch and Dinner share one menu, and so do AMT and PMT.</p>
+    <button class="btn" id="ni-add" type="button">Add item</button>
+    <div id="ni-list" style="margin-top:10px"></div>
+ 
+    <h3 style="margin-top:24px">Publish and reset</h3>
+    <p style="font-size:.85rem;color:#44574c;margin:0 0 8px">Changes are saved on this device. To show them on every device, download <b>settings.js</b> and upload it to GitHub in the same folder as index.html.</p>
+    <button class="line" id="set-export" type="button">Download settings.js</button>
+    <button class="line" id="set-reset" type="button">Reset this device to the published settings</button>
+    <div id="set-msg" role="status" style="margin-top:8px;font-size:.88rem;color:var(--g)"></div>
+  </div></div>
+</div>
+ 
+<div class="bar">
+  <div class="msg"><span id="status">Choose a session to begin</span><div class="meter"><i id="meter"></i></div></div>
+  <button type="button" class="btn" id="go">Get My Quotation</button>
+</div>
+ 
+<div id="full" class="hide" role="dialog" aria-modal="true" aria-labelledby="ft">
+  <div class="topbar"><button class="btn ghost" id="topback" type="button">← Back to form</button><span>Your quotation</span><input type="color" id="qcolor2" value="#0b3d2e" aria-label="Quotation colour" title="Change the quotation colour"></div>
+  <div class="paper">
+    <div class="ph">
+      <img class="logo" id="flogo" alt="Focus Prism logo">
+      <div><h2 id="ft">Parivar Cafe</h2><small id="ftag">Food for the Soul &middot; by Focus Prism</small></div>
+      <div class="ref">Booking ref<b id="i-fp"></b>Issued <span id="i-issued"></span></div>
+    </div>
+    <div class="band">VEGETARIAN BANQUET MENU<small>BOOKING CONFIRMATION</small></div>
+    <div class="info">
+      <div><span>Guest</span><b id="i-name"></b></div>
+      <div><span>Phone</span><b id="i-phone"></b></div>
+      <div><span>Organisation</span><b id="i-org"></b></div>
+      <div><span>Event</span><b id="i-event"></b></div>
+      <div><span>Event date</span><b id="i-date"></b></div>
+      <div><span>Guests</span><b id="i-pax"></b></div>
+      <div><span>Sessions</span><b id="i-plan"></b></div>
+      <div><span>Special requests</span><b id="i-req"></b></div>
+    </div>
+    <div class="sec"><h3>Your menu<span id="menuCount"></span></h3><div id="menuList"></div></div>
+    <div class="sec">
+      <h3>Payment summary</h3>
+      <div class="hero">
+        <div><small id="rlLabel">Rate per plate</small><b id="rl"></b><i id="rbreak"></i></div>
+        <div><small>Total payable</small><b id="total"></b><i>including hall charges</i></div>
+      </div>
+      <table class="paytbl"><tbody id="payRows"></tbody></table>
+      <div class="pbox">
+        <div class="a"><small>Advance (75%)</small><b id="adv"></b><i>to confirm the booking</i></div>
+        <div class="b"><small>Balance (25%)</small><b id="bal"></b><i>before the event</i></div>
+      </div>
+    </div>
+    <div class="fine">
+      <p id="i-notes"></p>
+      <p>To confirm your booking, pay the advance of 75% of the total amount. The full amount must be paid before the event.</p>
+      <p><b>Cancellation policy:</b> Cancellation cannot be done in the last 3 days before the date of the event. If cancelled, only 25% of the total amount is payable (<span id="cxamt"></span>).</p>
+    </div>
+  </div>
+  <div class="acts">
+    <button class="btn" id="share" type="button">Send screenshot on WhatsApp</button>
+    <button class="btn" id="sharepdf" type="button">Send PDF on WhatsApp</button>
+    <button class="btn ghost" id="save" type="button">Save image</button>
+    <button class="btn ghost" id="savepdf" type="button">Save PDF</button>
+    <button class="btn" id="smsbtn" type="button">Send SMS</button>
+    <button class="btn" id="calbtn" type="button">Add to calendar</button>
+    <button class="btn ghost" id="gcalbtn" type="button">Google Calendar invite</button>
+    <button class="btn ghost" id="dispbtn" type="button">Dispatch sheet</button>
+    <button class="btn ghost" id="print" type="button">Print</button>
+    <button class="btn ghost" id="back" type="button">Back to form</button>
+  </div>
+  <div id="shareMsg" role="status"></div>
+</div>
+ 
+<div id="disp" class="hide" role="dialog" aria-modal="true" aria-labelledby="dt">
+  <div class="topbar"><button class="btn ghost" id="disptop" type="button">← Back</button><span>Dispatch sheet</span></div>
+  <div class="paper">
+    <div class="ph"><img class="logo" id="dlogo" alt="Focus Prism logo"><div><h2 id="dt">Dispatch sheet</h2><small>Kitchen quantities by session</small></div></div>
+    <div class="dh" id="dispHead"></div>
+    <div class="dh" style="border-top:1px solid #e6dcc0;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <label for="dispbuf"><b>Buffer on every quantity</b></label>
+      <select id="dispbuf" style="font:inherit;padding:4px 8px;border:1.5px solid var(--g2);border-radius:6px;background:#fff"><option value="5">5%</option><option value="6">6%</option><option value="7">7%</option><option value="0">None</option></select>
+      <small style="color:#5b6b60">added on top of what is needed, so the kitchen dispatches a little extra</small>
+    </div>
+    <div class="sec" id="dispBody" style="padding-bottom:16px"></div>
+  </div>
+  <div class="acts">
+    <button class="btn" id="dispxl" type="button">Download Excel</button>
+    <button class="btn ghost" id="dispprint" type="button">Print</button>
+    <button class="btn ghost" id="dispclose" type="button">Close</button>
+  </div>
+  <div id="dispMsg" style="margin-top:12px;font-size:.9rem;color:#f0dfae;text-align:center" role="status"></div>
+</div>
+ 
+<script src="settings.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+const CAFE_WA = ""; // optional cafe WhatsApp number with country code, e.g. "919876543210"
+const CAFE_PHONE = "";   // optional cafe number for the SMS button, e.g. "+919876543210" (falls back to CAFE_WA)
+const CAFE_EMAIL = "";   // optional cafe email: added as organiser / invitee on the calendar invite
+const CAFE_PLACE = "";   // optional calendar event location (defaults to the organisation name)
+const HALL = 3000, ADV = 0.75;
+/* Lunch / Dinner: one dish per section is included in the base rate. In these sections a customer may add more dishes,
+   each extra dish being charged this amount per plate (added to the total plate cost). Other sections stay single choice. */
+const EXTRA_PRICE = { "Paneer starters": 75, "Vegetable starters": 50, "Main course – vegetable": 35, "Bread": 25, "Desserts": 50, "Dessert 2": 50 };
+/* Rates live here only: they are not shown while a customer is choosing sessions or dishes.
+   A session with a rate of null stays locked ("coming soon"). */
+const RATE = { bf: 450, amt: 250, pmt: 250, lunch: 630, dinner: 630 };
+const COMMON = ["Sambar", "Chutney", "Curd"];   // served to all in Lunch / Dinner
+/* North / South Indian breakfast pricing (added to the plate rate). North: the first dish is included, each further dish adds ₹50.
+   South: Idly, Medu Wada, Pongal, Uppama and Semiya Uppama are included; Dosa, Masala Dosa and Pesarattu add the amount below. */
+const NORTH_EXTRA = 50, SOUTH_PRICE = { "Dosa": 15, "Masala Dosa": 25, "Pesarattu": 15 };
+const BF_NORTH = 3, BF_SOUTH = 4;   // positions of the two sections in BF
+const BF_FIXED = ["Hot Milk & Cold Milk (both served)", "Bread Toaster", "Jam & Butter", "Tea / Coffee",
+                  "Sambar, Allam Chutney & Peanut Chutney (with the South Indian breakfast)"];
+const CONT_DISCOUNT = 100;   // taken off the breakfast plate rate when no continental item is chosen
+const BF = [["Fresh juice", ["Watermelon Juice", "Muskmelon Juice", "Pineapple Juice", "Milk Shakes"], 1,
+              { min: 0, grpTitle: "Continental breakfast", grpNote: "optional", hint: "optional · 1 included, more are chargeable" }],
+            ["Choice of cereals", ["Corn Flakes", "Wheat Flakes", "Chocolate Flakes"], 1, { min: 0, hint: "optional · 1 included, more are chargeable" }],
+            ["Cut fruits", ["Watermelon", "Pineapple", "Muskmelon"], 2, { min: 0, hint: "optional · 2 included, more are chargeable" }],
+            ["North Indian breakfast", ["Poori Bhaji", "Aloo Paratha", "Chhole Bhatura"], Infinity,
+              { min: 0, need1: true, grpTitle: "Indian breakfast", grpNote: "North Indian, South Indian or both", hint: "choose any · extra dishes are chargeable" }],
+            ["South Indian breakfast", ["Idly", "Medu Wada", "Pongal", "Uppama", "Semiya Uppama", "Dosa", "Masala Dosa", "Pesarattu"], Infinity,
+              { min: 0, need1: true, hint: "choose any · some dishes are chargeable" }]];
+/* AMT / PMT pricing (added to the plate rate): a costly cookie adds the amount below for each one chosen; the first 2 snacks are included and
+   each further snack adds SNACK_EXTRA; Masala Cashewnut adds the PREMIUM amount. */
+const PREMIUM = { "Masala Cashewnut": 250 };
+const COSTLY_COOKIE = { "Oats Cookies": 25, "Chocolate Cookies": 25 };
+const SNACK_EXTRA = 20, TEA_COOKIES = 1, TEA_SNACKS = 2;
+const MIN_EXTRA = 20;   // every extra dish whose price has not been set costs at least this much per plate
+const TEA = [["Welcome drink / tea & coffee", ["Welcome Drink", "Tea and Coffee"], 1],
+             ["Cookies", ["Osmania", "Marie Biscuit", "Monaco", "Oats Cookies", "Chocolate Cookies"], Infinity,
+               { need: 1, hint: "choose any · some cookies are chargeable" }],
+             ["Snacks", ["Aloo Bonda", "Samosa", "Kachori", "Onion Pakora", "Veg Pakora", "Potato Bhajji", "Plantain Bhajji", "Eggplant Bhajji", "Vegetable Croquette", "Spring Roll", "French Fries", "Masala Cashewnut"], Infinity,
+               { need: 2, hint: "choose 2 or more · extra snacks are chargeable" }],
+             ["Dessert", ["Kala Jamun", "Gulab Jamun", "Milk Burfi"], 1]];
+const MENU = [
+  ["Welcome drink", ["Fresh Lime Mint Cooler","Masala Buttermilk","Aam Panna","Fresh Fruit Punch","Jaljeera"]],
+  ["Soup", ["Sweet Corn Soup","Tomato Basil Soup","Cream of Mushroom","Hot & Sour Soup","Lemon Coriander Soup","Manchow Soup"]],
+  ["Salads & accompaniments", ["Green Salad","Kachumber Salad","Kimchi Salad","Raita (Boondi / Cucumber)","Pickle & Papad"]],
+  ["Paneer starters", ["Paneer Tikka","Paneer Hariyali Kebab","Paneer Malai Tikka","Tandoori Paneer Bites","Chilli Paneer","Paneer 65","Schezwan Paneer"]],
+  ["Vegetable starters", ["Hara Bhara Kebab","Corn & Cheese Tikki","Vegetable Spring Rolls","Crispy Baby Corn","Aloo Tikki with Chutneys","Stuffed Mushroom","Veg Ball Manchurian","Gobi Manchurian"]],
+  ["Main course – paneer", ["Paneer Butter Masala","Kadai Paneer","Paneer Lababdar","Paneer Methi Malai"]],
+  ["Main course – vegetable", ["Mixed Vegetable Curry","Bhindi Masala","Baingan Bharta","Aloo Gobi","Navratan Korma","Methi Mutter Malai","Dum Aloo"]],
+  ["Dal", ["Dal Tadka","Dal Makhani","Panchratan Dal","Moong Dal"]],
+  ["Rice", ["Steamed Basmati Rice","Jeera Rice","Veg Pulao","Lemon Rice"]],
+  ["Variety rice", ["Veg Biryani","Tomato Rice","Coconut Rice","Curd Rice","Veg Hakka Noodles","Veg Fried Rice"]],
+  ["Bread", ["Phulka","Butter Naan","Garlic Naan","Tandoori Roti"]],
+  ["Desserts", ["Gulab Jamun","Rasmalai","Milk Cake","Malpua","Shahi Tukda (with Rabdi)","Fruit Custard"]],
+  ["Dessert 2", ["Mini Pineapple Pastry","Mini Chocolate Pastry","Mini Strawberry Pastry","Mini Butterscotch Pastry"]],
+  ["Ice cream", ["Vanilla Ice Cream","Strawberry Ice Cream","Chocolate Ice Cream","Butterscotch Ice Cream"]]
+];
+const SESS = {
+  bf:     { name: "Breakfast", short: "Breakfast", type: "bf", blurb: "Optional continental breakfast (juice, cereals, cut fruits), North and South Indian breakfast, tea / coffee." },
+  amt:    { name: "AMT · Morning tea", short: "AMT", type: "tea", blurb: "Welcome drink or tea / coffee, cookies, snacks and a dessert." },
+  lunch:  { name: "Lunch", short: "Lunch", type: "full", blurb: "Starters, main course, dal, rice, bread and desserts. One dish per section, with paid extras." },
+  pmt:    { name: "PMT · Evening tea", short: "PMT", type: "tea", blurb: "Welcome drink or tea / coffee, cookies, snacks and a dessert." },
+  dinner: { name: "Dinner", short: "Dinner", type: "full", blurb: "Same menu and rules as lunch." }
+};
+const ORDER = ["bf", "amt", "lunch", "pmt", "dinner"];
+function badge(k, i, x) { return k === "bf" && i === BF_SOUTH ? (SOUTH_PRICE[x] || 0) : (PREMIUM[x] || 0); }
+/* ---------- owner settings: organisation name, logo and extra menu items (set in "Owner settings") ---------- */
+const SETTINGS_KEY = "parivarCafe.settings";
+const SETTINGS = (() => {
+  let local = null; try { local = JSON.parse(localStorage.getItem(SETTINGS_KEY)); } catch (e) {}
+  return { org: "Parivar Cafe", tagline: "Food for the Soul · by Focus Prism", logo: null, items: [], ...(window.PARIVAR_SETTINGS || {}), ...(local || {}) };
+})();
+const ORG = { name: SETTINGS.org || "Parivar Cafe", tagline: SETTINGS.tagline || "" };
+const CUSTOM_SPEC = {};   // dish name -> dispatch quantity for dishes added in Owner settings
+const CATS = { bf: BF, amt: TEA, lunch: MENU, pmt: TEA, dinner: MENU };
+(SETTINGS.items || []).forEach(it => {   // lunch and dinner share MENU, amt and pmt share TEA, so one entry covers both
+  const k = it.grp === "bf" ? "bf" : it.grp === "tea" ? "amt" : "lunch", cat = CATS[k].find(c => c[0] === it.cat);
+  if (!cat || !it.name || cat[1].includes(it.name)) return;
+  cat[1].push(it.name);
+  if (+it.price > 0) PREMIUM[it.name] = +it.price;
+  CUSTOM_SPEC[it.name] = it.spec || { t: "none" };
+});
+ 
+const $ = id => document.getElementById(id);
+document.title = `${ORG.name} – Vegetarian Banquet Menu`;
+$("orgname").textContent = ORG.name; $("ft").textContent = ORG.name; $("orgtag").textContent = ORG.tagline; $("ftag").textContent = ORG.tagline;
+$("orgtag").style.display = $("ftag").style.display = ORG.tagline ? "" : "none";
+if (SETTINGS.logo) { $("hlogo").src = SETTINGS.logo; document.querySelectorAll('link[rel="icon"],link[rel="apple-touch-icon"]').forEach(l => l.href = SETTINGS.logo); }
+["hlogo", "flogo", "dlogo"].forEach(id => $(id).alt = ORG.name + " logo");
+$("flogo").src = $("hlogo").src;
+const inr = n => (n < 0 ? "-" : "") + "₹" + Math.abs(Math.round(n)).toLocaleString("en-IN");
+const esc = t => String(t).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+ 
+/* ---------- build the screen ---------- */
+const ready = k => RATE[k] !== null;
+const full = k => SESS[k].type === "full";
+$("sessions").innerHTML = ORDER.map(k => {
+  const S = SESS[k], off = !ready(k);
+  return `<label class="plan${off ? " off" : ""}"><input type="checkbox" name="sess" id="s-${k}" value="${k}"${off ? " disabled" : ""}><b>${esc(S.name)}</b><span>${off ? "Coming soon." : esc(S.blurb)}</span></label>`;
+}).join("");
+ 
+const blockHtml = k => {
+  const S = SESS[k];
+  const fixedPanel = (title, list) => `<section class="panel"><div class="tag">${title}</div><div class="common">` +
+    list.map(x => `<label class="opt fixed"><input type="checkbox" checked disabled> ${esc(x)}</label>`).join("") + `</div></section>`;
+  return `<div id="blk-${k}" class="hide"><div class="sessh">${esc(S.name)}<small id="gh-${k}"></small></div>` +
+    `<section class="panel"><div class="fields"><label class="f" id="l-pax-${k}">No. of guests for ${esc(S.short)} *<input type="number" id="pax-${k}" min="1" step="1" inputmode="numeric" placeholder="e.g. 50"></label></div></section>` +
+    (full(k) ? `<section class="panel"><div class="tag">One dish per section <small>extras available</small></div>
+        <p style="margin:0;font-size:.9rem">One dish in every section is included. In some sections you can add extra dishes; any charges are shown in your quotation.</p></p></section>` : "") +
+    `<div class="grid" id="grid-${k}"></div>` +
+    (k === "bf" ? fixedPanel("Also served in breakfast", BF_FIXED) : "") +
+    (full(k) ? fixedPanel("Common items <small>served to all</small>", COMMON) : "") + `</div>`;
+};
+$("blocks").innerHTML = ORDER.map(blockHtml).join("");
+ORDER.forEach(k => {
+  $("grid-" + k).innerHTML = CATS[k].map(([t, items, , o], i) =>
+    (o && o.grpTitle ? `<div class="grp">${esc(o.grpTitle)}<small>${esc(o.grpNote || "")}</small></div>` : "") + `<fieldset class="cat" id="f-${k}-${i}" style="margin:0"><legend class="tag">${esc(t)}<small class="lim"></small></legend>` +
+    items.map(x => `<label class="opt"><input type="checkbox" data-s="${k}" data-c="${i}" value="${esc(x)}"> <span>${esc(x)}</span></label>`).join("") +
+    `<div class="xtra"></div></fieldset>`).join("");
+});
+ 
+/* ---------- selections and pricing ---------- */
+const sel = () => ORDER.filter(k => { const e = $("s-" + k); return e && e.checked && !e.disabled; });
+const boxes = (k, i) => [...document.querySelectorAll(`input[data-s="${k}"][data-c="${i}"]`)];
+const vals = (k, i) => boxes(k, i).filter(b => b.checked).map(b => b.value);
+const picks = k => CATS[k].map((c, i) => vals(k, i));
+function ruleOf(k, i) {   // dishes included in the rate, and the price of each extra dish (per plate); null = priced another way
+  const t = CATS[k][i][0];
+  if (full(k)) return { inc: 1, price: EXTRA_PRICE[t] || MIN_EXTRA };
+  if (k === "bf") return i === BF_SOUTH ? null : i === BF_NORTH ? { inc: 1, price: NORTH_EXTRA } : { inc: i === 2 ? 2 : 1, price: MIN_EXTRA };
+  return i === TEA_COOKIES ? null : { inc: i === TEA_SNACKS ? 2 : 1, price: i === TEA_SNACKS ? SNACK_EXTRA : MIN_EXTRA };
+}
+const extraPrice = (k, i) => (ruleOf(k, i) || {}).price || 0;
+const limitOf = () => Infinity;   // every section allows more than one dish
+const isOpt = (k, i) => !!(CATS[k][i][3] && CATS[k][i][3].min === 0);   // optional section (North / South breakfast): at least one of the group is needed
+const need1 = (k, i) => !!(CATS[k][i][3] && CATS[k][i][3].need1);   // at least one of these sections must have a dish
+const hasGrp = k => CATS[k].some((c, i) => need1(k, i));
+const grpOk = k => !hasGrp(k) || CATS[k].some((c, i) => need1(k, i) && vals(k, i).length > 0);
+const needOf = (k, i) => { const o = CATS[k][i][3] || {}; return o.need != null ? o.need : isOpt(k, i) ? 0 : full(k) ? 1 : (CATS[k][i][2] || 1); };
+const okCat = (k, i) => vals(k, i).length >= needOf(k, i);
+const tagFor = (k, i, j, v) => {   // charge shown beside a dish on the quotation
+  const r = ruleOf(k, i); let t = r && j >= r.inc ? r.price : 0;
+  if (k === "bf" && i === BF_SOUTH) t += SOUTH_PRICE[v] || 0;
+  if (!full(k) && k !== "bf" && i === TEA_COOKIES) { const ord = vals(k, i).filter(x => !COSTLY_COOKIE[x]); t = COSTLY_COOKIE[v] || (ord.indexOf(v) >= 1 ? MIN_EXTRA : 0); }
+  return t + (PREMIUM[v] || 0);   // special items such as Masala Cashewnut, or items added in Owner settings with a charge
+};
+function bfLines() {   // extra charges in the breakfast session, per plate
+  const L = [];
+  vals("bf", BF_SOUTH).forEach(x => { if (SOUTH_PRICE[x]) L.push({ label: `South Indian breakfast: ${x}`, amt: SOUTH_PRICE[x] }); });
+  if (![0, 1, 2].some(i => vals("bf", i).length)) L.push({ label: "No continental breakfast items chosen", amt: -CONT_DISCOUNT });
+  return L;
+}
+function teaLines(k) {   // costly / extra cookies in AMT and PMT, per plate (extra snacks and other extras come from ruleOf)
+  const L = [], nm = SESS[k].short, ck = vals(k, TEA_COOKIES), ord = ck.filter(x => !COSTLY_COOKIE[x]);
+  ck.forEach(x => { if (COSTLY_COOKIE[x]) L.push({ label: `${nm} cookies: ${x}`, amt: COSTLY_COOKIE[x] }); });
+  if (ord.length > 1) L.push({ label: `${nm} cookies: ${ord.length - 1} extra item${ord.length > 2 ? "es" : ""} × ₹${MIN_EXTRA}`, amt: (ord.length - 1) * MIN_EXTRA });
+  return L;
+}
+function bfCatAdd(i) {
+  const L = bfLines().filter(l => l.label.startsWith(i === BF_NORTH ? "North" : "South")), amt = sum(L.map(l => l.amt));
+  return { amt, text: !amt ? "" : i === BF_NORTH ? `Extra dish${amt > NORTH_EXTRA ? "es" : ""}: +₹${amt} per plate` : L.map(l => `${l.label.split(": ")[1]} +₹${l.amt}`).join(" · ") + ` = +₹${amt} per plate` };
+}
+const fixedOf = k => k === "bf" ? BF_FIXED : full(k) ? COMMON : [];
+const rateOf = k => k === "bf" ? RATE.bf : RATE[k];
+function extraMap(k) {   // {category index: [price of each extra dish]}
+  const m = {};
+  CATS[k].forEach((c, i) => { const r = ruleOf(k, i); if (r) m[i] = Array(Math.max(0, vals(k, i).length - r.inc)).fill(r.price); });
+  return m;
+}
+const sum = a => a.reduce((x, y) => x + y, 0);
+const extras = k => sum(Object.values(extraMap(k)).map(a => a.length));
+const extraCost = k => sum(Object.values(extraMap(k)).map(sum));
+const premCost = k => sum(CATS[k].flatMap((c, i) => vals(k, i)).map(v => PREMIUM[v] || 0));
+const breakdown = () => sel().map(k => { const adds = k === "bf" ? bfLines() : SESS[k].type === "tea" ? teaLines(k) : []; return { k, rate: rateOf(k), ex: extras(k), exCost: extraCost(k), prCost: premCost(k), prNames: CATS[k].flatMap((c, i) => vals(k, i)).filter(v => PREMIUM[v]), adds, addCost: sum(adds.map(l => l.amt)), plan: null }; });
+const perPlate = () => breakdown().reduce((n, x) => n + x.rate + x.exCost + x.prCost + x.addCost, 0);
+const lbl = x => SESS[x.k].name + (x.plan ? ` (${x.plan})` : "");
+const sessLabel = b => b.map(lbl).join(" + ");
+const itemCount = b => b.reduce((n, x) => n + picks(x.k).reduce((m, a) => m + a.length, 0) + fixedOf(x.k).length, 0);
+ 
+function refresh() {
+  const S = sel(), b = breakdown(), pl = b.map(x => x.rate + x.exCost + x.prCost + x.addCost);
+  ORDER.forEach(k => $("blk-" + k).classList.toggle("hide", !S.includes(k)));
+  document.querySelectorAll(".plan,.seg").forEach(l => l.classList.toggle("sel", l.querySelector("input").checked));
+  if (S.length) $("sessP").classList.remove("warn");
+  ORDER.forEach(k => {
+    const n = +$("pax-" + k).value;
+    $("gh-" + k).textContent = n > 0 ? ` · ${n} guest${n > 1 ? "s" : ""}` : "";
+    if (n >= 1) $("l-pax-" + k).classList.remove("bad");
+  });
+  ORDER.forEach(k => CATS[k].forEach((c, i) => {
+    const v = vals(k, i), fs = $(`f-${k}-${i}`), ok = okCat(k, i);
+    const dn = isOpt(k, i) ? v.length > 0 : ok; fs.classList.toggle("done", dn); if (dn || (need1(k, i) && grpOk(k))) fs.classList.remove("bad");
+    const xp = extraPrice(k, i), em = xp ? extraMap(k)[i] : [], e = em.length, lim = limitOf(k, i);
+    fs.querySelector(".lim").textContent = (CATS[k][i][3] || {}).hint || (ruleOf(k, i) ? `${ruleOf(k, i).inc} included · extra dishes are chargeable` : "choose any");
+    const pr = full(k) ? 0 : sum(v.map(x => PREMIUM[x] || 0)), ba = k === "bf" && (i === BF_NORTH || i === BF_SOUTH) ? bfCatAdd(i) : null;
+    fs.querySelector(".xtra").textContent = "";   // charges are shown in the quotation, not beside the menu
+  }));
+  // progress counts chosen dishes plus the fixed / common items of every selected session
+  let tot = 0, got = 0, done = S.length > 0;
+  S.forEach(k => {
+    const rq = CATS[k].filter((c, i) => !isOpt(k, i)).length + (hasGrp(k) ? 1 : 0);
+    const g = CATS[k].filter((c, i) => !isOpt(k, i) && okCat(k, i)).length + (hasGrp(k) && grpOk(k) ? 1 : 0);
+    tot += rq + fixedOf(k).length; got += g + fixedOf(k).length; if (g < rq) done = false;
+  });
+  $("status").textContent = !tot ? "Choose a session to begin" : done ? `All ${tot} items selected` : `${got} of ${tot} items selected`;
+  $("meter").style.width = (tot ? got / tot * 100 : 0) + "%";
+  $("go").textContent = done ? "View My Quotation" : "Get My Quotation";
+}
+ 
+$("sessions").addEventListener("change", refresh);
+$("blocks").addEventListener("input", e => { if (e.target.id && e.target.id.startsWith("pax-")) refresh(); });
+$("blocks").addEventListener("change", e => {
+  const t = e.target;
+  if (t.dataset.s) {
+    const k = t.dataset.s, i = +t.dataset.c, lim = limitOf(k, i);
+    if (t.checked && lim !== Infinity) {
+      if (lim === 1) boxes(k, i).forEach(o => { if (o !== t) o.checked = false; });
+      else if (vals(k, i).length > lim) {
+        t.checked = false;
+        $("status").textContent = `Only ${lim} can be chosen in ${CATS[k][i][0]}. Untick one to change.`;
+        return;
+      }
+    }
+  }
+  refresh();
+});
+ 
+$("date").min = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+ 
+function validate() {
+  const bad = [];
+  const need = (id, ok) => { $("l-" + id).classList.toggle("bad", !ok); if (!ok) bad.push($("l-" + id)); };
+  need("date", !!$("date").value);
+  need("fp", $("fp").value.trim().length >= 3);
+  need("name", $("name").value.trim().length > 1);
+  need("phone", /^[6-9]\d{9}$/.test($("phone").value.trim()));
+  need("event", !!$("event").value);
+  need("eventx", $("event").value !== "Custom Choice" || $("eventx").value.trim().length > 1);
+  const S = sel();
+  if (!S.length) { $("sessP").classList.add("warn"); bad.push($("sessP")); }
+  S.forEach(k => { const ok = +$("pax-" + k).value >= 1; $("l-pax-" + k).classList.toggle("bad", !ok); if (!ok) bad.push($("l-pax-" + k)); });
+  S.forEach(k => CATS[k].forEach((c, i) => { if (!okCat(k, i)) { $(`f-${k}-${i}`).classList.add("bad"); bad.push($(`f-${k}-${i}`)); } }));
+  S.forEach(k => { if (hasGrp(k) && !grpOk(k)) CATS[k].forEach((c, i) => { if (need1(k, i)) { $(`f-${k}-${i}`).classList.add("bad"); bad.push($(`f-${k}-${i}`)); } }); });
+  if (bad.length) {
+    bad[0].scrollIntoView({ behavior: "smooth", block: "center" });
+    $("status").textContent = !S.length ? "Please choose at least one session" : "Please fill the highlighted fields";
+    return false;
+  }
+  return true;
+}
+ 
+function details() {
+  const b = breakdown().map(x => { const pax = +$("pax-" + x.k).value, plate = x.rate + x.exCost + x.prCost + x.addCost; return { ...x, pax, plate, food: pax * plate }; });
+  const food = sum(b.map(x => x.food)), total = food + HALL;
+  return { b, ex: sum(b.map(x => x.ex)), food, total, adv: total * ADV, bal: total - total * ADV };
+}
+ 
+const fmtDate = v => new Date(v + "T00:00").toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+ 
+function menuHtml(d) {
+  const li = (x, extra) => `<li>${esc(x)}${extra ? `<em>+₹${extra}</em>` : ""}</li>`;
+  const card = (t, items, wide) => `<div class="mc"${wide ? ' style="grid-column:1/-1"' : ""}><h4>${esc(t)}</h4><ul>${items}</ul></div>`;
+  return d.b.map(x => {
+    const k = x.k;
+    let h = `<h5 class="sh">${esc(lbl(x))} · ${x.pax} guest${x.pax > 1 ? "s" : ""}</h5><div class="mgrid">` +
+      CATS[k].map((c, i) => vals(k, i).length ? card(c[0], vals(k, i).map((v, j) => li(v, tagFor(k, i, j, v))).join("")) : "").join("");
+    if (k === "bf") h += card("Also served", `<li style="font-weight:500">${BF_FIXED.map(esc).join(" · ")}</li>`, true);
+    h += `</div>`;
+    if (full(k)) h += `<div class="cm" style="margin:10px 0 0"><b>Served to all:</b> ${COMMON.join(" &middot; ")} <b>(${COMMON.length} items)</b></div>`;
+    return h;
+  }).join("");
+}
+ 
+function payRows(d) {   // the payment table: shared by the quotation screen and the PDF
+  const rows = [];
+  d.b.forEach(x => {
+    const n0 = SESS[x.k].short;
+    rows.push([`${n0}${x.plan ? " (" + x.plan + ")" : ""} rate per plate (incl. tax)`, inr(x.rate)]);
+    if (x.ex) rows.push([`${n0} extra dish${x.ex > 1 ? "es" : ""} (${x.ex}) per plate`, inr(x.exCost)]);
+    if (x.prCost) rows.push([`${n0} special item${x.prNames.length > 1 ? "s" : ""}: ${x.prNames.join(", ")} (per plate)`, inr(x.prCost)]);
+    x.adds.forEach(l => rows.push([l.label + " (per plate)", inr(l.amt)]));
+    rows.push([`${n0}: ${x.pax} guest${x.pax > 1 ? "s" : ""} × ${inr(x.plate)}`, inr(x.food), true]);
+  });
+  rows.push(["Hall charges (once)", inr(HALL)]);
+  return rows;
+}
+$("go").addEventListener("click", () => {
+  if (!validate()) return;
+  const d = details(), v = id => $(id).value.trim() || "—";
+  $("i-fp").textContent = fpId();
+  $("i-issued").textContent = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  $("i-name").textContent = v("name"); $("i-phone").textContent = v("phone"); $("i-org").textContent = v("org");
+  $("i-event").textContent = eventName() || "—"; $("i-date").textContent = fmtDate($("date").value);
+  $("i-pax").textContent = d.b.map(x => `${SESS[x.k].short} ${x.pax}`).join(" · ");
+  $("i-plan").textContent = sessLabel(d.b); $("i-req").textContent = v("req");
+  const nt = $("notes").value.trim(); $("i-notes").textContent = nt ? "Notes: " + nt : ""; $("i-notes").style.display = nt ? "" : "none";
+  if (d.b.length === 1) {
+    $("rlLabel").textContent = "Rate per plate"; $("rl").textContent = inr(d.b[0].plate);
+    $("rbreak").textContent = SESS[d.b[0].k].short + " · incl. tax";
+  } else {
+    $("rlLabel").textContent = "Sessions booked"; $("rl").textContent = d.b.length;
+    $("rbreak").textContent = d.b.map(x => SESS[x.k].short).join(" + ");
+  }
+  $("total").textContent = inr(d.total);
+  const rows = payRows(d);
+  $("payRows").innerHTML = rows.map(([a, b, sub]) => `<tr${sub ? ' class="sub"' : ""}><td>${esc(a)}</td><td>${b}</td></tr>`).join("") +
+    `<tr class="tot"><td>Total amount payable</td><td>${inr(d.total)}</td></tr>`;
+  $("adv").textContent = inr(d.adv);
+  $("bal").textContent = inr(d.bal);
+  $("cxamt").textContent = inr(d.total * 0.25);
+  saveBooking(d);
+  $("menuCount").textContent = " · " + itemCount(d.b) + " items";
+  $("menuList").innerHTML = menuHtml(d);
+  $("shareMsg").textContent = "";
+  shotBlob = null; shotReady = null; shotCanvas = null; pdfBlob = null; pdfReady = null;
+  setTimeout(() => { shotReady = makeShot().catch(() => null); pdfReady = makeQuotePdf().then(b => (pdfBlob = b)).catch(() => null); }, 150);
+  $("full").classList.remove("hide");
+  $("full").scrollTop = 0;
+  document.body.style.overflow = "hidden";
+  history.pushState({ q: 1 }, "");
+  $("back").focus();
+});
+const closeFull = () => { $("full").classList.add("hide"); document.body.style.overflow = ""; };
+const closeDisp = () => { $("disp").classList.add("hide"); if ($("full").classList.contains("hide")) document.body.style.overflow = ""; };
+const goBack = (key, close) => () => { if (history.state && history.state[key]) history.back(); else close(); };   // also works with the phone's back button
+$("back").addEventListener("click", goBack("q", closeFull));
+$("topback").addEventListener("click", goBack("q", closeFull));
+window.addEventListener("popstate", () => { if (!$("settings").classList.contains("hide")) closeSettings(); else if (!$("disp").classList.contains("hide")) closeDisp(); else if (!$("full").classList.contains("hide")) closeFull(); });
+$("print").addEventListener("click", () => window.print());
+let shotBlob = null, shotReady = null, shotCanvas = null, pdfBlob = null, pdfReady = null;
+async function makeShot() {
+  if (!window.html2canvas) throw new Error("lib");
+  const canvas = await html2canvas($("full"), {
+    backgroundColor: "#0a2e23", scale: Math.max(2, window.devicePixelRatio || 1), useCORS: true, scrollX: 0, scrollY: 0,
+    onclone: doc => {
+      const f = doc.getElementById("full");
+      f.style.cssText += ";position:relative;inset:auto;height:auto;overflow:visible;width:620px;padding:18px 10px 24px";
+      doc.querySelectorAll(".topbar").forEach(e => e.style.display = "none");
+      doc.querySelector(".acts").style.display = "none";
+      doc.getElementById("shareMsg").style.display = "none";
+    }
+  });
+  shotCanvas = canvas;
+  shotBlob = await new Promise(r => canvas.toBlob(r, "image/png"));
+  return shotBlob;
+}
+const getShot = async () => shotBlob || (shotReady ? await shotReady : null) || await makeShot();
+const fpId = () => $("fp").value.trim().toUpperCase();
+ 
+function msgText() {
+  const d = details(), g = n => `${n} guest${n > 1 ? "s" : ""}`, L = [
+    `*${ORG.name} – Vegetarian Banquet Booking*`,
+    `FP ID: ${fpId()}`,
+    `Name: ${$("name").value.trim()} (${$("phone").value.trim()})`,
+    `Event: ${eventName() || "-"} on ${$("date").value}`,
+    `Sessions: ${sessLabel(d.b)}`, ""
+  ];
+  d.b.forEach(x => {
+    const k = x.k;
+    L.push(`*${lbl(x)} – ${g(x.pax)}*`, ...CATS[k].flatMap((c, i) => vals(k, i).length ? [`${c[0]}: ${vals(k, i).join(", ")}`] : []));
+    if (k === "bf") L.push("Also served: " + BF_FIXED.join(", "));
+    if (full(k)) L.push("Common: " + COMMON.join(", "));
+    L.push("");
+  });
+  L.push(`Total items: ${itemCount(d.b)}`, "");
+  if ($("notes").value.trim()) L.push(`Notes: ${$("notes").value.trim()}`, "");
+  d.b.forEach(x => {
+    const n0 = SESS[x.k].short;
+    L.push(`${n0}${x.plan ? " – " + x.plan : ""}: ${inr(x.rate)} per plate (incl. tax)`);
+    if (x.ex) L.push(`${n0} extra dishes (${x.ex}): ${inr(x.exCost)} per plate`);
+    if (x.prCost) L.push(`${n0} special item${x.prNames.length > 1 ? "s" : ""} (${x.prNames.join(", ")}): ${inr(x.prCost)} per plate`);
+    x.adds.forEach(l => L.push(`${l.label}: ${inr(l.amt)} per plate`));
+    L.push(`${n0} food: ${g(x.pax)} × ${inr(x.plate)} = ${inr(x.food)}`);
+  });
+  L.push(`Hall charges: ${inr(HALL)}`, `Total payable: ${inr(d.total)}`,
+    `Advance 75% to confirm: ${inr(d.adv)}`, "Full payment to be made before the event.", "",
+    "Cancellation: cannot be done in the last 3 days before the event date. If cancelled, only 25% of the total amount (" + inr(d.total * 0.25) + ") is payable.");
+  return L.join("\n");
+}
+async function logoImage(doc) {   // the logo for the PDF header; skipped if the browser will not let the page read it (e.g. opened from a file)
+  try {
+    const im = $("hlogo"); if (!im.complete || !im.naturalWidth) return null;
+    const c = document.createElement("canvas"); c.width = im.naturalWidth; c.height = im.naturalHeight; c.getContext("2d").drawImage(im, 0, 0);
+    return await doc.embedPng(Uint8Array.from(atob(c.toDataURL("image/png").split(",")[1]), ch => ch.charCodeAt(0)));
+  } catch (e) { return null; }
+}
+async function makeQuotePdf() {   // a real text PDF (sharp at any zoom): no screenshot, so it also works on phones with small canvas limits
+  const PL = window.PDFLib; if (!PL) throw new Error("PDF library not loaded");
+  const { PDFDocument, StandardFonts, rgb } = PL;
+  const d = details(), accent = $("qcolor").value || "#0b3d2e", light = lum(accent) > 0.55;
+  const doc = await PDFDocument.create();
+  const F = await doc.embedFont(StandardFonts.Helvetica), FB = await doc.embedFont(StandardFonts.HelveticaBold), FI = await doc.embedFont(StandardFonts.HelveticaOblique);
+  const okc = new Set(F.getCharacterSet());
+  const clean = t => String(t == null ? "" : t).replace(/₹\s?/g, "Rs. ").replace(/[\u00a0\n\r]+/g, " ").split("").filter(ch => okc.has(ch.codePointAt(0))).join("");
+  const C = h => { const [r, g, b] = hexRgb(h); return rgb(r / 255, g / 255, b / 255); };
+  const ink = C("#1c2a22"), grey = C("#5b6b60"), acc = C(accent), tint = C(mix(accent, 0.9)), line = C(mix(accent, 0.7)), white = rgb(1, 1, 1);
+  const on = light ? ink : C("#f3dc9a"), onw = light ? ink : white;
+  const W = 595.28, H = 841.89, M = 40, CW = W - 2 * M;
+  let page, y;
+  const newPage = () => { page = doc.addPage([W, H]); y = H - M; };
+  const need = h => { if (y - h < M + 26) newPage(); };
+  const tw = (t, f, sz) => f.widthOfTextAtSize(t, sz);
+  const T = (t, x, yy, sz, f = F, c = ink) => page.drawText(clean(t), { x, y: yy, size: sz, font: f, color: c });
+  const R = (t, xr, yy, sz, f = F, c = ink) => { t = clean(t); page.drawText(t, { x: xr - tw(t, f, sz), y: yy, size: sz, font: f, color: c }); };
+  const wrap = (t, f, sz, w) => {
+    const L = []; let cur = "";
+    clean(t).split(/\s+/).filter(Boolean).forEach(wd => { const tr = cur ? cur + " " + wd : wd; if (tw(tr, f, sz) <= w) cur = tr; else { if (cur) L.push(cur); cur = wd; } });
+    if (cur) L.push(cur); return L.length ? L : [""];
+  };
+  const rule = (yy, c = line, th = 0.6) => page.drawLine({ start: { x: M, y: yy }, end: { x: W - M, y: yy }, thickness: th, color: c });
+  const heading = t => { need(40); y -= 8; T(t.toUpperCase(), M, y, 10.5, FB, acc === white ? ink : ink); rule(y - 5, acc, 1.4); y -= 20; };
+ 
+  // header
+  newPage();
+  const hh = 78; page.drawRectangle({ x: 0, y: H - hh, width: W, height: hh, color: acc });
+  let lx = M; const logo = await logoImage(doc);
+  if (logo) { const lh = 48, lw = logo.width / logo.height * lh; page.drawRectangle({ x: M - 4, y: H - hh + 14, width: lw + 8, height: lh + 4, color: white }); page.drawImage(logo, { x: M, y: H - hh + 16, width: lw, height: lh }); lx = M + lw + 20; }
+  const nsz = Math.min(24, (W - lx - M - 130) / Math.max(1, tw(clean(ORG.name) || "Quotation", FB, 1)));
+  T(ORG.name || "Quotation", lx, H - 38, nsz, FB, on); T(ORG.tagline, lx, H - 56, 9.5, FI, onw);
+  R("QUOTATION", W - M, H - 34, 16, FB, on); R("Ref " + fpId(), W - M, H - 50, 10, F, onw);
+  R("Issued " + new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }), W - M, H - 64, 9, F, onw);
+  page.drawRectangle({ x: 0, y: H - hh - 24, width: W, height: 24, color: tint });
+  const ttl = "VEGETARIAN BANQUET MENU"; T(ttl, (W - tw(ttl, FB, 11)) / 2, H - hh - 16, 11, FB, ink);
+  y = H - hh - 44;
+ 
+  // customer details
+  heading("Customer and event details");
+  const kv = [["Guest", $("name").value.trim()], ["Phone", $("phone").value.trim()], ["Email", $("email").value.trim() || "-"], ["Organisation", $("org").value.trim() || "-"],
+    ["Event", eventName() || "-"], ["Event date", fmtDate($("date").value)], ["Sessions and guests", d.b.map(x => `${SESS[x.k].short} ${x.pax}`).join("  |  ")], ["Special requests", $("req").value.trim() || "-"]];
+  const cw = CW / 2 - 10;
+  for (let n = 0; n < kv.length; n += 2) {
+    const pair = kv.slice(n, n + 2), ls = pair.map(p => wrap(p[1], FB, 10, cw)), rh = 14 + 13 * Math.max(...ls.map(a => a.length)) + 8;
+    need(rh);
+    pair.forEach((p, c) => { const x = M + c * (cw + 20); T(p[0].toUpperCase(), x, y - 10, 7.5, F, grey); ls[c].forEach((ln, q) => T(ln, x, y - 23 - q * 13, 10, FB, ink)); });
+    y -= rh; rule(y + 2, tint, 0.8);
+  }
+  const nt = $("notes").value.trim(); if (nt) { const ls = wrap("Notes: " + nt, FI, 9, CW); need(14 * ls.length); ls.forEach(ln => { T(ln, M, y - 10, 9, FI, grey); y -= 12; }); y -= 4; }
+ 
+  // menu, session by session
+  d.b.forEach(x => {
+    const k = x.k;
+    need(70); y -= 6;
+    page.drawRectangle({ x: M, y: y - 20, width: CW, height: 22, color: tint }); page.drawRectangle({ x: M, y: y - 20, width: 5, height: 22, color: acc });
+    T(`${lbl(x)}   -   ${x.pax} guest${x.pax === 1 ? "" : "s"}`, M + 14, y - 14, 11, FB, ink); y -= 30;
+    const rowsOf = [];
+    CATS[k].forEach((c, i) => { const v = vals(k, i); if (v.length) rowsOf.push([c[0], v.map((dish, j) => { const t = tagFor(k, i, j, dish); return dish + (t ? ` (+Rs. ${t})` : ""); }).join(", ")]); });
+    const fx = fixedOf(k); if (fx.length) rowsOf.push([k === "bf" ? "Also served" : "Served to all", fx.join(", ")]);
+    rowsOf.forEach(([lab, txt]) => {
+      const ls = wrap(txt, F, 10, CW - 140), ll = wrap(lab.toUpperCase(), FB, 8, 120), rh = Math.max(ls.length * 13, ll.length * 11) + 6;
+      need(rh);
+      ll.forEach((ln, q) => T(ln, M + 6, y - 10 - q * 11, 8, FB, grey)); ls.forEach((ln, q) => T(ln, M + 134, y - 10 - q * 13, 10, F, ink));
+      y -= rh; rule(y + 2, tint, 0.6);
+    });
+  });
+ 
+  // payment summary
+  need(230); y -= 6; heading("Payment summary");
+  payRows(d).forEach(([lab, amt, sub]) => {
+    const ls = wrap(lab, sub ? FB : F, 9.5, CW - 120), rh = ls.length * 12 + 6; need(rh);
+    ls.forEach((ln, q) => T(ln, M + 4, y - 10 - q * 12, 9.5, sub ? FB : F, ink)); R(amt, W - M - 4, y - 10, 9.5, FB, ink);
+    y -= rh; rule(y + 2, tint, 0.6);
+  });
+  need(80); y -= 8; rule(y + 2, acc, 1.6); y -= 4;
+  T("Total amount payable", M + 4, y - 14, 13, FB, ink); R(inr(d.total), W - M - 4, y - 14, 15, FB, ink); y -= 34;
+  need(80);
+  const bw = CW / 2 - 6, bh = 62;
+  page.drawRectangle({ x: M, y: y - bh, width: bw, height: bh, color: acc });
+  T("ADVANCE (75%)  -  to confirm the booking", M + 12, y - 18, 8.5, FB, onw); T(inr(d.adv), M + 12, y - 46, 22, FB, on);
+  page.drawRectangle({ x: M + bw + 12, y: y - bh, width: bw, height: bh, color: tint, borderColor: acc, borderWidth: 1.4 });
+  T("BALANCE (25%)  -  before the event", M + bw + 24, y - 18, 8.5, FB, ink); T(inr(d.bal), M + bw + 24, y - 46, 22, FB, ink);
+  y -= bh + 16;
+ 
+  // terms
+  [["To confirm your booking, pay the advance of 75% of the total amount. The full amount must be paid before the event."],
+   ["Cancellation policy: cancellation cannot be done in the last 3 days before the date of the event. If cancelled, only 25% of the total amount is payable (" + inr(d.total * 0.25) + ")."],
+   ["Rates include tax. Hall charges are added once, however many sessions are booked."]].forEach(([p]) => {
+    const ls = wrap(p, F, 8.5, CW); need(ls.length * 11 + 6); ls.forEach(ln => { T(ln, M, y - 9, 8.5, F, grey); y -= 11; }); y -= 5;
+  });
+ 
+  // footer on every page
+  const pgs = doc.getPages();
+  pgs.forEach((pg, n) => {
+    pg.drawLine({ start: { x: M, y: 30 }, end: { x: W - M, y: 30 }, thickness: 0.6, color: line });
+    pg.drawText(clean(ORG.name + "  -  Quotation " + fpId()), { x: M, y: 18, size: 8, font: F, color: grey });
+    const t = clean(`Page ${n + 1} of ${pgs.length}`); pg.drawText(t, { x: W - M - tw(t, F, 8), y: 18, size: 8, font: F, color: grey });
+  });
+  return new Blob([await doc.save()], { type: "application/pdf" });
+}
+const getPdf = async () => pdfBlob || (pdfReady ? await pdfReady : null) || (pdfBlob = await makeQuotePdf());
+function download(blob, name) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+}
+const kinds = {
+  img: { get: getShot, ext: ".png", type: "image/png", word: "screenshot" },
+  pdf: { get: getPdf, ext: ".pdf", type: "application/pdf", word: "PDF" }
+};
+/* ---------- SMS notification and calendar invite ---------- */
+const guestsText = d => d.b.map(x => `${SESS[x.k].short} ${x.pax}`).join(", ");
+function smsText() {
+  const d = details();
+  return `${ORG.name} booking ${fpId()}: ${eventName() || "Event"} on ${fmtDate($("date").value)}. Sessions: ${guestsText(d)} guests. Total ${inr(d.total)}; advance (75%) ${inr(d.adv)} to confirm. Full payment before the event. Name: ${$("name").value.trim()}, ${$("phone").value.trim()}.`;
+}
+function smsLink() {   // opens the phone's messages app with the text ready (to the cafe if its number is set)
+  const to = (CAFE_PHONE || (CAFE_WA ? "+" + CAFE_WA.replace(/\D/g, "") : "")).replace(/\s/g, "");
+  return `sms:${to}?&body=${encodeURIComponent(smsText())}`;
+}
+const icsEsc = t => String(t).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+const icsFold = l => l.replace(/(.{73})(?=.)/g, "$1\r\n ");
+const ymd = dt => `${dt.getFullYear()}${String(dt.getMonth() + 1).padStart(2, "0")}${String(dt.getDate()).padStart(2, "0")}`;
+function calInfo() {   // the event is an all-day entry on the event date, with the booking details and payment terms in the notes
+  const d = details(), day = new Date($("date").value + "T00:00"), next = new Date(day); next.setDate(next.getDate() + 1);
+  const email = $("email").value.trim(), ok = /^\S+@\S+\.\S+$/.test(email);
+  const title = `${eventName() || "Event"} – ${ORG.name} banquet (${fpId()})`;
+  const notes = [`Booking ${fpId()}`, `Customer: ${$("name").value.trim()} (${$("phone").value.trim()})`, `Sessions and guests: ${guestsText(d)}`, `Total payable: ${inr(d.total)}`,
+    `Advance (75%) to confirm: ${inr(d.adv)}`, `Balance (25%): ${inr(d.bal)}`, "Full payment before the event.", "Cancellation cannot be done in the last 3 days before the event."].join("\n");
+  return { d, title, notes, start: ymd(day), end: ymd(next), email: ok ? email : "", name: $("name").value.trim() };
+}
+function icsText() {
+  const c = calInfo(), stamp = new Date().toISOString().replace(/[-:]|\.\d{3}/g, "");
+  const L = ["BEGIN:VCALENDAR", "VERSION:2.0", `PRODID:-//${ORG.name}//Banquet Booking//EN`, "CALSCALE:GREGORIAN", CAFE_EMAIL ? "METHOD:REQUEST" : "METHOD:PUBLISH",
+    "BEGIN:VEVENT", `UID:${fpId()}@${ORG.name.toLowerCase().replace(/[^a-z0-9]/g, "") || "booking"}`, `DTSTAMP:${stamp}`, `DTSTART;VALUE=DATE:${c.start}`, `DTEND;VALUE=DATE:${c.end}`,
+    `SUMMARY:${icsEsc(c.title)}`, `LOCATION:${icsEsc(CAFE_PLACE || ORG.name)}`, `DESCRIPTION:${icsEsc(c.notes)}`, "STATUS:TENTATIVE", "TRANSP:OPAQUE"];
+  if (CAFE_EMAIL) L.push(`ORGANIZER;CN="${ORG.name.replace(/"/g, "")}":mailto:${CAFE_EMAIL}`, `ATTENDEE;CN="${ORG.name.replace(/"/g, "")}";ROLE=CHAIR;PARTSTAT=ACCEPTED:mailto:${CAFE_EMAIL}`);
+  if (c.email) L.push(`ATTENDEE;CN=${icsEsc(c.name || "Guest")};ROLE=REQ-PARTICIPANT;RSVP=TRUE:mailto:${c.email}`);
+  [["-P3D", "Booking in 3 days: cancellation is closed and full payment is due"], ["-P1D", "Banquet booking tomorrow"]].forEach(([t, m]) =>
+    L.push("BEGIN:VALARM", "ACTION:DISPLAY", `DESCRIPTION:${m}`, `TRIGGER:${t}`, "END:VALARM"));
+  L.push("END:VEVENT", "END:VCALENDAR");
+  return L.map(icsFold).join("\r\n") + "\r\n";
+}
+function gcalLink() {   // opens Google Calendar with the event filled in and the invitees added; the customer taps Save to send the invites
+  const c = calInfo(), guests = [c.email, CAFE_EMAIL].filter(Boolean).join(",");
+  return "https://calendar.google.com/calendar/render?action=TEMPLATE" + `&text=${encodeURIComponent(c.title)}&dates=${c.start}/${c.end}` +
+    `&details=${encodeURIComponent(c.notes)}&location=${encodeURIComponent(CAFE_PLACE || ORG.name)}` + (guests ? `&add=${encodeURIComponent(guests)}` : "");
+}
+$("smsbtn").addEventListener("click", () => { $("shareMsg").textContent = "Opening your messages app with the booking details…"; location.href = smsLink(); });
+$("calbtn").addEventListener("click", () => {
+  download(new Blob([icsText()], { type: "text/calendar;charset=utf-8" }), fpId() + ".ics");
+  $("shareMsg").textContent = "Calendar file downloaded. Open it to add the event to your calendar" + (calInfo().email ? " (your email is listed as the invitee)." : ".");
+});
+$("gcalbtn").addEventListener("click", () => { window.open(gcalLink(), "_blank", "noopener"); $("shareMsg").textContent = "Google Calendar opened. Tap Save to send the invite."; });
+ 
+const toWhatsApp = () => window.open(`https://wa.me/${CAFE_WA}?text=` + encodeURIComponent(msgText()), "_blank", "noopener");
+const cap = t => t[0].toUpperCase() + t.slice(1);
+function showOpen(K, blob, name, lead) {   // some phone browsers block automatic downloads, so always offer a tap-to-open link too
+  const m = $("shareMsg"), a = document.createElement("a");
+  m.textContent = lead + " ";
+  a.href = URL.createObjectURL(blob); a.target = "_blank"; a.rel = "noopener"; a.download = name; a.textContent = `Tap here to open the ${K.word}`;
+  a.style.cssText = "color:#fff;text-decoration:underline"; m.appendChild(a);
+}
+async function saveFile(kind) {
+  const K = kinds[kind], name = fpId() + K.ext;
+  try { const blob = await K.get(); download(blob, name); showOpen(K, blob, name, `${cap(K.word)} saved.`); }
+  catch (e) { $("shareMsg").textContent = `Could not create the ${K.word} (${(e && e.message) || e}). Please check your internet connection and try again.`; }
+}
+async function sendFile(btn, kind) {
+  const K = kinds[kind], label = btn.textContent, name = fpId() + K.ext;
+  btn.disabled = true; btn.textContent = `Preparing ${K.word}…`;
+  try {
+    const blob = await K.get(), file = new File([blob], name, { type: K.type });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], text: msgText() });   // choose WhatsApp in the share sheet
+    } else {
+      download(blob, name); toWhatsApp();
+      showOpen(K, blob, name, `${cap(K.word)} saved and WhatsApp opened with the booking details: attach the saved file to send it.`);
+    }
+  } catch (e) {
+    if (e.name !== "AbortError") {
+      toWhatsApp();
+      $("shareMsg").textContent = `Could not attach the ${K.word} (${(e && e.message) || e}). The booking details were sent as text: save the ${K.word} and attach it.`;
+    }
+  } finally { btn.disabled = false; btn.textContent = label; }
+}
+$("save").addEventListener("click", () => saveFile("img"));
+$("savepdf").addEventListener("click", () => saveFile("pdf"));
+$("share").addEventListener("click", () => sendFile($("share"), "img"));
+$("sharepdf").addEventListener("click", () => sendFile($("sharepdf"), "pdf"));
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("full").classList.contains("hide")) $("back").click(); });
+ 
+ 
+/* ---------- Dispatch (kitchen quantity) sheet ---------- */
+/* Specs are PER PORTION (one portion = one guest of that session). g = grams, ml = millilitres, pcs = pieces.
+   Change a number here to change the dispatch quantities everywhere. */
+const BF_SPEC = {
+  juice: { g: 100 }, cereal: { g: 30 }, fruit: { g: 90 },            // cut fruit: 90 g divided equally between the fruits chosen
+  milk: { ml: 100 },                                                  // hot milk and cold milk, 100 ml each
+  bread: { pcs: 2 }, jam: { g: 15 }, butter: { g: 10 },
+  idly: { pcs: 2, gEach: 65 }, medu: { pcs: 2 },
+  sambar: { g: 150 }, chutney: { ml: 90 },                           // chutney: 90 ml divided equally between Allam and Peanut chutney
+  poori: { pcs: 3 }, bhajji: { g: 100 },
+  bev: { g: 100 },                                                    // tea / coffee: 100 g per portion, divided equally between tea and coffee
+  pongal: { g: 100 }, chole: { g: 100 }, bhatura: { pcs: 2 },
+  uppama: { g: 90 },                                                  // Uppama and Semiya Uppama
+  dosa: { pcs: 2 }, masalaDosa: { pcs: 2 }, aloo: { g: 90 },         // dosa / masala dosa: 2 medium pcs; aloo masala filling for masala dosa 90 g
+  pesarattu: { pcs: 2 },                                              // medium size
+  pickle: { g: 10 },                                                  // pickle served with aloo paratha
+  paratha: { pcs: 1 }, curd: { g: 100 }                              // aloo paratha 1 pc; curd 100 g (served with aloo paratha)
+};
+/* Lunch and Dinner specs, per portion (one portion = one guest). The same menu and quantities are used for both sessions. */
+const FULL_SPEC = {
+  gCat: { "Welcome drink": 100, "Soup": 90, "Paneer starters": 100, "Vegetable starters": 75, "Main course – paneer": 150,
+          "Main course – vegetable": 150, "Dal": 150, "Rice": 150, "Variety rice": 200,
+          "Salads & accompaniments": 30, "Desserts": 60 },                                       // default grams for a dish in that section
+  pcsCat: { "Dessert 2": 1 },                                                                    // default pieces for a dish in that section
+  dish: { "Vegetable Spring Rolls": { pcs: 2 }, "Raita (Boondi / Cucumber)": { g: 50 },
+          "Phulka": { pcs: 2, gEach: 21 }, "Butter Naan": { pcs: 1, gEach: 60 }, "Garlic Naan": { pcs: 1, gEach: 60 },
+          "Gulab Jamun": { pcs: 2 }, "Rasmalai": { pcs: 2 }, "Malpua": { pcs: 2 } },            // piece desserts: 2 pcs per portion
+  notSet: ["Pickle & Papad"],                                                                    // no quantity given yet
+  iceCreamPortionsPerGallon: 30,
+  common: { "Sambar": 150, "Chutney": 45, "Curd": 100 }
+};
+/* AMT and PMT specs, per portion (the same menu and quantities for both sessions). */
+const TEA_SPEC = {
+  gCat: { "Welcome drink / tea & coffee": 100 },
+  pcsCat: { "Cookies": 2, "Dessert": 2 },
+  dish: { "Aloo Bonda": { pcs: 2 }, "Samosa": { pcs: 2 }, "Kachori": { pcs: 2 }, "Onion Pakora": { g: 75 }, "Veg Pakora": { g: 75 }, "Potato Bhajji": { g: 90 },   // Potato Bhajji = Aloo Bhajji
+          "Plantain Bhajji": { pcs: 2 }, "Vegetable Croquette": { pcs: 2, note: "2 pcs or 100 g per portion" }, "Spring Roll": { pcs: 2 },
+          "French Fries": { g: 100 }, "Masala Cashewnut": { g: 80 } },
+  notSet: ["Eggplant Bhajji"]   // no quantity given yet
+};
+const evName = o => o.event === "Custom Choice" ? (o.eventx || "Custom Choice") : (o.event || "");
+const r3 = n => Math.round(n * 1000) / 1000;
+function rowTools(n) {
+  const rows = [];
+  const add = (item, per, pcs, kg, litres, note) => rows.push({ item, per, pcs, kg, litres, note: note || "" });
+  return { rows, add,
+    wt: (item, g, note) => add(item, `${r3(g)} g`, null, r3(g * n / 1000), null, note),
+    vol: (item, ml, note) => add(item, `${r3(ml)} ml`, null, null, r3(ml * n / 1000), note),
+    pc: (item, q, note) => add(item, `${q} pcs`, q * n, null, null, note),
+    pend: (item, note) => add(item, "not set", null, null, null, note || "Quantity not provided yet"), n };
+}
+function applySpec(t, item, sp) {   // dispatch quantity of a dish added in Owner settings
+  const v = +(sp && sp.v) || 0;
+  if (!sp || sp.t === "none" || !v) return t.pend(item);
+  if (sp.t === "g") return t.wt(item, v);
+  if (sp.t === "ml") return t.vol(item, v);
+  if (sp.t === "pcs") return t.pc(item, v);
+  return t.add(item, `${v} pcs × ${+sp.each || 0} g`, v * t.n, r3(v * (+sp.each || 0) * t.n / 1000), null);
+}
+function bfDispatch(o) {
+  const n = +o.pax.bf || 0, P = o.picks.bf || [], S = BF_SPEC;
+  const tools = rowTools(n), { rows, add, wt, vol, pc, pend } = tools;
+  (P[0] || []).forEach(x => wt("Fresh juice – " + x, S.juice.g));
+  (P[1] || []).forEach(x => wt("Cereal – " + x, S.cereal.g));
+  const fr = P[2] || [];
+  fr.forEach(x => wt("Cut fruit – " + x, S.fruit.g / fr.length, `${S.fruit.g} g per portion divided equally`));
+  vol("Hot milk", S.milk.ml); vol("Cold milk", S.milk.ml);
+  pc("Bread (toast)", S.bread.pcs); wt("Jam", S.jam.g); wt("Butter", S.butter.g);
+  const no = P[BF_NORTH] || [], so = P[BF_SOUTH] || [];
+  if (so.includes("Idly")) add("Idly", `${S.idly.pcs} pcs × ${S.idly.gEach} g`, S.idly.pcs * n, r3(S.idly.pcs * S.idly.gEach * n / 1000), null);
+  if (so.includes("Medu Wada")) pc("Medu Wada", S.medu.pcs);
+  if (so.includes("Pongal")) wt("Pongal", S.pongal.g);
+  ["Uppama", "Semiya Uppama"].forEach(x => { if (so.includes(x)) wt(x, S.uppama.g); });
+  if (so.includes("Dosa")) pc("Dosa (medium)", S.dosa.pcs);
+  if (so.includes("Masala Dosa")) { pc("Masala Dosa (medium)", S.masalaDosa.pcs); wt("Aloo masala (for Masala Dosa)", S.aloo.g); }
+  if (so.includes("Pesarattu")) pc("Pesarattu (medium)", S.pesarattu.pcs);
+  if (so.length) {
+    wt("Sambar", S.sambar.g);
+    vol("Allam chutney", S.chutney.ml / 2, `${S.chutney.ml} ml per portion divided equally`); vol("Peanut chutney", S.chutney.ml / 2, `${S.chutney.ml} ml per portion divided equally`);
+  }
+  if (no.includes("Poori Bhaji")) { pc("Poori", S.poori.pcs); wt("Bhaji", S.bhajji.g); }
+  if (no.includes("Aloo Paratha")) { pc("Aloo Paratha", S.paratha.pcs); wt("Curd (with Aloo Paratha)", S.curd.g); wt("Pickle (with Aloo Paratha)", S.pickle.g); }
+  if (no.includes("Chhole Bhatura")) { wt("Chhole", S.chole.g); pc("Bhatura", S.bhatura.pcs); }
+  wt("Tea", S.bev.g / 2, `${S.bev.g} g of tea or coffee per portion, divided equally`); wt("Coffee", S.bev.g / 2, `${S.bev.g} g of tea or coffee per portion, divided equally`);
+  CATS.bf.forEach((c, i) => (P[i] || []).forEach(dish => { if (CUSTOM_SPEC[dish]) applySpec(tools, `${c[0]} – ${dish}`, CUSTOM_SPEC[dish]); }));
+  return rows;
+}
+function fullDispatch(o, k) {   // Lunch and Dinner
+  const n = +(o.pax || {})[k] || 0, F = FULL_SPEC, pk = o.picks[k] || [];
+  const tools = rowTools(n), { rows, add, wt, pc, pend } = tools;
+  CATS[k].forEach((c, i) => (pk[i] || []).forEach(dish => {
+    const item = `${c[0]} – ${dish}`, d = F.dish[dish];
+    if (CUSTOM_SPEC[dish]) { applySpec(tools, item, CUSTOM_SPEC[dish]); return; }
+    if (c[0] === "Ice cream") rows.push({ item, per: `1 gallon per ${F.iceCreamPortionsPerGallon} portions`, pcs: null, kg: null, litres: null, note: "", gal: n / F.iceCreamPortionsPerGallon });
+    else if (F.notSet.includes(dish)) pend(item);
+    else if (d && d.pcs && d.gEach) add(item, `${d.pcs} pcs × ${d.gEach} g`, d.pcs * n, r3(d.pcs * d.gEach * n / 1000), null);
+    else if (d && d.pcs) pc(item, d.pcs);
+    else if (d && d.g) wt(item, d.g);
+    else if (F.pcsCat[c[0]]) pc(item, F.pcsCat[c[0]]);
+    else if (F.gCat[c[0]]) wt(item, F.gCat[c[0]]);
+    else pend(item);
+  }));
+  Object.entries(F.common).forEach(([name, g]) => wt(name, g, "Common item"));
+  return rows;
+}
+function teaDispatch(o, k) {   // AMT and PMT
+  const n = +(o.pax || {})[k] || 0, T = TEA_SPEC, pk = o.picks[k] || [];
+  const tools = rowTools(n), { rows, wt, pc, pend } = tools;
+  CATS[k].forEach((c, i) => (pk[i] || []).forEach(dish => {
+    const item = `${c[0]} – ${dish}`, d = T.dish[dish];
+    if (CUSTOM_SPEC[dish]) { applySpec(tools, item, CUSTOM_SPEC[dish]); return; }
+    if (T.notSet.includes(dish)) pend(item);
+    else if (d && d.pcs) pc(item, d.pcs, d.note);
+    else if (d && d.g) wt(item, d.g);
+    else if (T.pcsCat[c[0]]) pc(item, T.pcsCat[c[0]]);
+    else if (T.gCat[c[0]]) wt(item, T.gCat[c[0]]);
+    else pend(item);
+  }));
+  return rows;
+}
+function listDispatch(o, k) {   // sessions whose quantities are not set yet: list the chosen dishes
+  const rows = [], cats = CATS[k], pk = (o.picks[k] || []);
+  cats.forEach((c, i) => (pk[i] || []).forEach(d => rows.push({ item: `${c[0]} – ${d}`, per: "not set", pcs: null, kg: null, litres: null, note: "Quantity not provided yet" })));
+  fixedOf(k).forEach(d => rows.push({ item: d, per: "not set", pcs: null, kg: null, litres: null, note: "Quantity not provided yet" }));
+  return rows;
+}
+const bufPct = () => +($("dispbuf").value) / 100;
+function dispatchOf(o0) {
+  const o = norm(o0), b = bufPct(), up = x => x * (1 + b);
+  return { o, buf: b, sheets: ORDER.filter(k => o.sess.includes(k)).map(k => {
+    const base = k === "bf" ? bfDispatch(o) : full(k) ? fullDispatch(o, k) : SESS[k].type === "tea" ? teaDispatch(o, k) : listDispatch(o, k);
+    const rows = base.map(r => ({ ...r,
+      dp: r.pcs == null ? null : Math.ceil(up(r.pcs) - 1e-9), dk: r.kg == null ? null : r3(up(r.kg)), dl: r.litres == null ? null : r3(up(r.litres)),
+      note: r.gal != null ? `${r3(r.gal)} gallon${r.gal === 1 ? "" : "s"} needed; with the buffer send ${Math.ceil(up(r.gal) - 1e-9)}` : r.note }));
+    return { k, name: SESS[k].name, short: SESS[k].short, pax: +(o.pax || {})[k] || 0, rows,
+      kg: r3(sum(rows.map(r => r.kg || 0))), litres: r3(sum(rows.map(r => r.litres || 0))),
+      dkg: r3(sum(rows.map(r => r.dk || 0))), dlitres: r3(sum(rows.map(r => r.dl || 0))) };
+  }) };
+}
+let dispCur = null;
+function renderDispatch() {
+  const d = dispatchOf(dispCur), o = d.o, f = x => x == null ? "" : x;
+  $("dispHead").innerHTML = `<b>FP ID:</b> ${esc((o.fp || "").toUpperCase())} &nbsp; <b>Event:</b> ${esc(evName(o) || "—")} &nbsp; <b>Date:</b> ${esc(o.date || "—")}<br><b>Customer:</b> ${esc(o.name || "—")} &nbsp; <b>Phone:</b> ${esc(o.phone || "—")}`;
+  $("dispBody").innerHTML = d.sheets.map(sh => `<h3>${esc(sh.name)} · ${sh.pax} guest${sh.pax === 1 ? "" : "s"}</h3>` +
+    `<div class="dt-wrap"><table class="dt"><thead><tr><th>Item</th><th>Per portion</th><th>Needed pcs</th><th>Needed kg</th><th>Needed litres</th><th>Dispatch pcs</th><th>Dispatch kg</th><th>Dispatch litres</th><th>Note</th></tr></thead><tbody>` +
+    sh.rows.map(r => { const ns = r.per === "not set"; return `<tr><td>${esc(r.item)}</td><td>${esc(r.per)}</td><td class="n">${f(r.pcs)}</td><td class="n">${f(r.kg)}</td><td class="n">${f(r.litres)}</td><td class="n" style="background:#fbf3d9">${f(r.dp)}</td><td class="n" style="background:#fbf3d9">${f(r.dk)}</td><td class="n" style="background:#fbf3d9">${f(r.dl)}</td><td${ns ? ' class="pend"' : ""}>${esc(r.note)}</td></tr>`; }).join("") +
+    `<tr class="tot"><td>Total</td><td></td><td></td><td class="n">${sh.kg}</td><td class="n">${sh.litres}</td><td></td><td class="n">${sh.dkg}</td><td class="n">${sh.dlitres}</td><td></td></tr>` +
+    `</tbody></table></div>`).join("") || "<p>No session selected.</p>";
+}
+function openDispatch(o0) {
+  dispCur = o0;
+  try { const v = localStorage.getItem("parivarCafe.buffer"); if (v !== null) $("dispbuf").value = v; } catch (e) {}
+  $("dlogo").src = $("hlogo").src;
+  renderDispatch();
+  $("dispMsg").textContent = "";
+  $("disp").classList.remove("hide"); $("disp").scrollTop = 0;
+  document.body.style.overflow = "hidden";
+  history.pushState({ d: 1 }, "");
+}
+$("dispbuf").addEventListener("change", () => { try { localStorage.setItem("parivarCafe.buffer", $("dispbuf").value); } catch (e) {} if (dispCur) renderDispatch(); });
+function dispatchXlsx() {
+  const X = window.XLSX; if (!X || !dispCur) throw new Error("xlsx");
+  const d = dispatchOf(dispCur), o = d.o, wb = X.utils.book_new(), pc = Math.round(d.buf * 100);
+  const meta = [[`${ORG.name.toUpperCase()} – DISPATCH SHEET`], ["FP ID", (o.fp || "").toUpperCase(), "Event", evName(o), "Event date", o.date], ["Customer", o.name, "Phone", o.phone], ["Buffer on quantities", pc + "%"]];
+  const book = [...meta, [], ["Session", "Guests"], ...d.sheets.map(s => [s.name, s.pax])];
+  const w0 = X.utils.aoa_to_sheet(book); w0["!cols"] = [{ wch: 24 }, { wch: 22 }, { wch: 18 }, { wch: 18 }, { wch: 14 }, { wch: 14 }];
+  X.utils.book_append_sheet(wb, w0, "Booking");
+  d.sheets.forEach(s => {
+    const c = x => x == null ? "" : x;
+    const aoa = [[`${ORG.name.toUpperCase()} – DISPATCH SHEET`], [`${s.name} · ${s.pax} guests`], ["FP ID", (o.fp || "").toUpperCase(), "Event", evName(o), "Event date", o.date], ["Customer", o.name, "Phone", o.phone], ["Buffer on quantities", pc + "%"], [],
+      ["Item", "Per portion", "Needed pcs", "Needed kg", "Needed litres", `Dispatch pcs (+${pc}%)`, `Dispatch kg (+${pc}%)`, `Dispatch litres (+${pc}%)`, "Note"],
+      ...s.rows.map(r => [r.item, r.per, c(r.pcs), c(r.kg), c(r.litres), c(r.dp), c(r.dk), c(r.dl), r.note]),
+      [], ["TOTAL", "", "", s.kg, s.litres, "", s.dkg, s.dlitres, ""]];
+    const ws = X.utils.aoa_to_sheet(aoa); ws["!cols"] = [{ wch: 34 }, { wch: 22 }, { wch: 11 }, { wch: 11 }, { wch: 12 }, { wch: 16 }, { wch: 16 }, { wch: 18 }, { wch: 46 }];
+    X.utils.book_append_sheet(wb, ws, s.short.slice(0, 31));
+  });
+  X.writeFile(wb, `${(o.fp || "dispatch").toUpperCase()}-dispatch.xlsx`);
+}
+$("dispbtn").addEventListener("click", () => openDispatch(snapshot()));
+$("dispxl").addEventListener("click", () => {
+  try { dispatchXlsx(); $("dispMsg").textContent = "Excel file downloaded."; }
+  catch (e) { $("dispMsg").textContent = "Could not create the Excel file. Please check your internet connection and try again."; }
+});
+$("dispprint").addEventListener("click", () => { document.body.classList.add("pd"); window.print(); setTimeout(() => document.body.classList.remove("pd"), 500); });
+$("dispclose").addEventListener("click", goBack("d", closeDisp));
+$("disptop").addEventListener("click", goBack("d", closeDisp));
+ 
+/* ---------- quotation colour ---------- */
+const hexRgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const lum = h => { const [r, g, b] = hexRgb(h).map(v => v / 255); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+const mix = (h, t) => "#" + hexRgb(h).map(v => Math.round(v + (255 - v) * t).toString(16).padStart(2, "0")).join("");   // blend towards white
+function applyColor() {
+  const c = $("qcolor").value || "#0b3d2e", light = lum(c) > 0.55, st = $("full").style;
+  st.setProperty("--g", c); st.setProperty("--gq2", mix(c, 0.18));
+  st.setProperty("--on", light ? "#1c2a22" : "#ecd48f"); st.setProperty("--onw", light ? "#1c2a22" : "#ffffff");
+  $("qcolor2").value = c;
+}
+function setColor(c) {   // a new colour means the saved screenshot / PDF are out of date
+  $("qcolor").value = c; applyColor(); saveDraft();
+  pdfBlob = null; pdfReady = null; shotBlob = null; shotReady = null; shotCanvas = null;
+}
+$("cpbox").addEventListener("click", e => { if (e.target.dataset.c) setColor(e.target.dataset.c); });
+$("qcolor").addEventListener("input", () => setColor($("qcolor").value));
+$("qcolor2").addEventListener("input", () => setColor($("qcolor2").value));
+ 
+/* ---------- localStorage ---------- */
+const FIELDS = ["date","fp","name","phone","org","event","eventx","email","req","notes","qcolor"];
+const SEQ = "parivarCafe.seq", DRAFT = "parivarCafe.draft", BOOKINGS = "parivarCafe.bookings";
+const load = (k, def) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : def; } catch (e) { return def; } };
+const store = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } };
+ 
+function snapshot() {
+  const o = {};
+  FIELDS.forEach(f => o[f] = $(f).value);
+  o.pax = {}; ORDER.forEach(k => o.pax[k] = $("pax-" + k).value);   // guests are entered per session
+  o.sess = sel(); o.picks = {};
+  ORDER.forEach(k => { o.picks[k] = picks(k); });
+  return o;
+}
+function newFP() {
+  // FP + YYYYMMDD + daily running number, e.g. FP20261029-001
+  const day = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10).replace(/-/g, "");
+  const q = load(SEQ, { day: "", n: 0 });
+  const n = q.day === day ? q.n + 1 : 1;
+  store(SEQ, { day, n });
+  return "FP" + day + "-" + String(n).padStart(3, "0");
+}
+const eventName = () => $("event").value === "Custom Choice" ? ($("eventx").value.trim() || "Custom Choice") : $("event").value;
+function syncEvent() { $("l-eventx").classList.toggle("hide", $("event").value !== "Custom Choice"); }
+ 
+function norm(o) {   // older saves were lunch-only (picks was one array)
+  if (!o) return null;
+  const n = { ...o };
+  if (Array.isArray(o.picks)) { n.picks = { lunch: o.picks }; n.plans = { lunch: o.plan || "std" }; n.sess = o.sess || ["lunch"]; }
+  if (o.pax !== undefined && typeof o.pax !== "object") n.pax = Object.fromEntries(ORDER.map(k => [k, o.pax]));   // older saves had one guest count
+  n.picks = n.picks || {}; n.plans = n.plans || {}; n.sess = n.sess || [];
+  if (n.bfmain) {   // older saves had a Poori Bhajji / Aloo Paratha toggle
+    const bf = (n.picks.bf = (n.picks.bf || []).slice());
+    if (!(bf[BF_NORTH] || []).length) bf[BF_NORTH] = [/poori/i.test(n.bfmain) ? "Poori Bhaji" : "Aloo Paratha"];
+  }
+  return n;
+}
+function apply(o0) {
+  const o = norm(o0);
+  FIELDS.forEach(f => $(f).value = (o && o[f]) || "");
+  if (!$("event").value && o && o.event) { $("event").value = "Custom Choice"; $("eventx").value = o.event; }   // older free-text events
+  ORDER.forEach(k => { $("pax-" + k).value = (o && o.pax && o.pax[k]) || ""; });
+  syncEvent();
+  if (!$("fp").value) $("fp").value = newFP();
+  if (!(o && o.qcolor)) $("qcolor").value = "#0b3d2e";
+  applyColor();
+  ORDER.forEach(k => { const e = $("s-" + k); e.checked = !e.disabled && !!o && o.sess.includes(k); });
+  document.querySelectorAll("#blocks input[data-s]").forEach(i => {
+    const v = o && (o.picks[i.dataset.s] || [])[+i.dataset.c];
+    i.checked = Array.isArray(v) ? v.includes(i.value) : v === i.value;
+  });
+  document.querySelectorAll(".bad").forEach(e => e.classList.remove("bad"));
+  document.querySelectorAll(".warn").forEach(e => e.classList.remove("warn"));
+  refresh();
+}
+const saveDraft = () => store(DRAFT, snapshot());
+$("event").addEventListener("change", syncEvent);
+$("form").addEventListener("input", saveDraft);
+$("form").addEventListener("change", saveDraft);
+ 
+function saveBooking(d) {
+  const o = snapshot();
+  o.total = d.total; o.adv = d.adv; o.bal = d.bal; o.savedAt = new Date().toISOString();
+  const all = load(BOOKINGS, {}), key = o.date + "_" + o.fp.trim().toUpperCase();   // one booking per date + FP ID
+  if (all[key] && all[key].payments) o.payments = all[key].payments;               // keep payments when a booking is re-saved
+  all[key] = o;
+  store(BOOKINGS, all);
+  renderBookings();
+}
+/* payment status: red = advance (75%) not yet paid, amber = advance paid (booking confirmed), green = fully paid */
+function payState(b) {
+  const paid = sum((b.payments || []).map(p => +p.amt || 0)), tol = 0.5;
+  if (paid >= b.total - tol) return { cls: "green", label: "Fully paid", paid };
+  if (paid >= b.adv - tol) return { cls: "amber", label: "Advance paid", paid };
+  return { cls: "red", label: paid > 0 ? "Part paid · advance pending" : "Unpaid", paid };
+}
+const todayStr = () => new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+function bookingRow(k, b) {
+    const st = payState(b), due = Math.max(0, b.total - st.paid), advDue = Math.max(0, b.adv - st.paid);
+    const dt = new Date(b.date + "T00:00").toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+    const po = b.pax && typeof b.pax === "object", ss = (b.sess || ["lunch"]).map(x => (SESS[x] ? SESS[x].short : x) + (po && b.pax[x] ? " " + b.pax[x] : "")).join(" + ");
+    const sug = Math.round(advDue > 0 ? advDue : due);
+    return `<div class="bk ${st.cls}" data-k="${esc(k)}"><div><b>${dt}</b> · FP ID ${esc(b.fp.toUpperCase())}<span class="st ${st.cls}">${st.label}</span>
+      <small>${esc(b.name)} · ${esc(ss)}${po ? " guests" : " · " + esc(b.pax) + " guests"} · Total ${inr(b.total)}</small>
+      <small>Paid ${inr(st.paid)} · Balance due ${inr(due)}${advDue > 0 ? ` · Advance still due ${inr(advDue)}` : ""}</small></div>
+      <div><button type="button" data-act="disp">Dispatch</button>${due > 0 ? `<button type="button" class="paybtn" data-act="pay">Record payment</button>` : ""}<button type="button" data-act="open">Open</button><button type="button" class="del" data-act="del">Delete</button></div>
+      <div class="payform hide">
+        <label>Amount received (₹)<input class="pf-amt" type="number" min="1" step="1" inputmode="numeric" value="${sug || ""}"></label>
+        <label>Paid by<select class="pf-mode"><option>UPI</option><option>Cash</option><option>Card</option><option>Bank transfer</option><option>Cheque</option></select></label>
+        <label>Date<input class="pf-date" type="date" value="${todayStr()}"></label>
+        <label>Reference / note<input class="pf-ref" type="text" placeholder="UPI ref, receipt no."></label>
+        <div class="row"><button type="button" class="paybtn" data-act="save">Save payment</button><button type="button" data-act="cancel">Cancel</button></div>
+      </div>
+      ${(b.payments || []).length ? `<ul class="pays">${b.payments.map(p => `<li>${inr(p.amt)} · ${esc(p.mode)} · ${esc(p.date)}${p.ref ? " · " + esc(p.ref) : ""}</li>`).join("")}</ul><div style="flex-basis:100%"><button type="button" data-act="undo">Undo last payment</button></div>` : ""}</div>`;
+}
+const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const openMonths = {};   // remembers which month groups the user opened or closed
+function renderBookings() {
+  const all = load(BOOKINGS, {}), total = Object.keys(all).length;
+  const yearsAll = [...new Set(Object.values(all).map(b => (b.date || "").slice(0, 4)).filter(Boolean))].sort().reverse();
+  const ys = $("hy"), keepY = ys.value;
+  ys.innerHTML = '<option value="">All years</option>' + yearsAll.map(y => `<option>${y}</option>`).join("");
+  ys.value = yearsAll.includes(keepY) ? keepY : "";
+  const q = $("hq").value.trim().toLowerCase(), yf = ys.value, mf = $("hm").value, sf = $("hs").value, filtered = !!(q || yf || mf || sf);
+  const rows = Object.entries(all).filter(([k, b]) => {
+    if (yf && (b.date || "").slice(0, 4) !== yf) return false;
+    if (mf && (b.date || "").slice(5, 7) !== mf) return false;
+    if (sf && payState(b).cls !== sf) return false;
+    return !q || `${b.name || ""} ${b.fp || ""} ${b.phone || ""} ${b.org || ""} ${evName(b)}`.toLowerCase().includes(q);
+  }).sort((a, b) => (a[1].date || "").localeCompare(b[1].date || "") || a[0].localeCompare(b[0]));
+  $("hcount").textContent = total ? `Showing ${rows.length} of ${total} event${total === 1 ? "" : "s"}, grouped by year and month` : "";
+  if (!rows.length) { $("bklist").innerHTML = `<p style='margin:0;color:#5b6b60'>${total ? "No events match these filters." : "No saved bookings yet. A booking is saved when you view the amount payable."}</p>`; return; }
+  const byYear = {};
+  rows.forEach(([k, b]) => { const y = b.date.slice(0, 4), m = b.date.slice(5, 7); ((byYear[y] = byYear[y] || {})[m] = byYear[y][m] || []).push([k, b]); });
+  const tm = todayStr().slice(0, 7);
+  $("bklist").innerHTML = Object.keys(byYear).sort().reverse().map(y => {
+    const months = byYear[y], yc = sum(Object.values(months).map(a => a.length));
+    return `<div class="hy"><span>${y}</span><small>${yc} event${yc === 1 ? "" : "s"}</small></div>` + Object.keys(months).sort().reverse().map(m => {
+      const list = months[m], ym = `${y}-${m}`, open = ym in openMonths ? openMonths[ym] : (filtered || ym >= tm);
+      return `<details class="hm" data-ym="${ym}"${open ? " open" : ""}><summary>${MONTH_NAMES[+m - 1]} ${y} · ${list.length} event${list.length === 1 ? "" : "s"} · Total ${inr(sum(list.map(([k, b]) => b.total)))} · Received ${inr(sum(list.map(([k, b]) => payState(b).paid)))}</summary>${list.map(([k, b]) => bookingRow(k, b)).join("")}</details>`;
+    }).join("");
+  }).join("");
+}
+$("bklist").addEventListener("toggle", e => { if (e.target.dataset && e.target.dataset.ym) openMonths[e.target.dataset.ym] = e.target.open; }, true);
+["hy", "hm", "hs"].forEach(id => $(id).addEventListener("change", renderBookings));
+$("hq").addEventListener("input", renderBookings);
+$("hclear").addEventListener("click", () => { $("hy").value = ""; $("hm").value = ""; $("hs").value = ""; $("hq").value = ""; renderBookings(); });
+$("bklist").addEventListener("click", e => {
+  const t = e.target, row = t.closest(".bk"), act = t.dataset.act;
+  if (!row || !act) return;
+  const k = row.dataset.k, all = load(BOOKINGS, {}), b = all[k];
+  if (!b) return;
+  if (act === "pay") row.querySelector(".payform").classList.toggle("hide");
+  else if (act === "cancel") row.querySelector(".payform").classList.add("hide");
+  else if (act === "save") {
+    const amt = Math.round(+row.querySelector(".pf-amt").value);
+    if (!(amt > 0)) { row.querySelector(".pf-amt").focus(); return; }
+    b.payments = [...(b.payments || []), { amt, mode: row.querySelector(".pf-mode").value, date: row.querySelector(".pf-date").value || todayStr(),
+      ref: row.querySelector(".pf-ref").value.trim(), at: new Date().toISOString() }];
+    store(BOOKINGS, all); renderBookings();
+  }
+  else if (act === "undo") { if (confirm("Remove the last recorded payment?")) { (b.payments || []).pop(); store(BOOKINGS, all); renderBookings(); } }
+  else if (act === "disp") openDispatch(b);
+  else if (act === "open") { apply(b); saveDraft(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+  else if (act === "del" && confirm("Delete this saved booking?")) { delete all[k]; store(BOOKINGS, all); renderBookings(); }
+});
+$("newbk").addEventListener("click", () => {
+  if (confirm("Clear the form and start a new booking?")) { try { localStorage.removeItem(DRAFT); } catch (e) {} apply(null); saveDraft(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+});
+ 
+/* ---------- backup and restore (bookings, payments and settings live in this browser, so keep a copy) ---------- */
+function backupData() {
+  let buf = null; try { buf = localStorage.getItem("parivarCafe.buffer"); } catch (e) {}
+  return { app: "parivar-cafe", version: 1, exportedAt: new Date().toISOString(), bookings: load(BOOKINGS, {}), seq: load(SEQ, null), buffer: buf, settings: curSettings() };
+}
+function backupFile(day = todayStr()) {
+  const n = Object.keys(backupData().bookings).length;
+  return { n, name: `parivar-cafe-backup-${day}.json`, blob: new Blob([JSON.stringify(backupData(), null, 2)], { type: "application/json" }) };
+}
+function bkNote(text, blob, name) {
+  const m = $("bkmsg"); m.textContent = text + " ";
+  if (blob) { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Tap here if the file did not download"; m.appendChild(a); }
+}
+$("bkbackup").addEventListener("click", () => {
+  const b = backupFile();
+  if (!b.n) { bkNote("There are no saved bookings to back up yet."); return; }
+  download(b.blob, b.name); bkNote(`Backup saved: ${b.n} booking${b.n > 1 ? "s" : ""} with their payments.`, b.blob, b.name);
+  const st = bkSettings(); st.lastManual = todayStr(); store(BKSET, st); renderBackupInfo();
+});
+try { if (navigator.canShare && navigator.canShare({ files: [new File(["{}"], "a.json", { type: "application/json" })] })) $("bkshare").classList.remove("hide"); } catch (e) {}
+$("bkshare").addEventListener("click", async () => {   // phones: send the backup to WhatsApp, Drive, email...
+  const b = backupFile(); if (!b.n) { bkNote("There are no saved bookings to back up yet."); return; }
+  try { await navigator.share({ files: [new File([b.blob], b.name, { type: "application/json" })], text: `${ORG.name} bookings backup` }); bkNote("Backup shared."); }
+  catch (e) { if (e.name !== "AbortError") { download(b.blob, b.name); bkNote("Backup saved.", b.blob, b.name); } }
+});
+function mergePayments(a, b) {
+  const seen = new Set(), out = [];
+  [...(a || []), ...(b || [])].forEach(p => { const k = [p.at, p.amt, p.date, p.mode].join("|"); if (!seen.has(k)) { seen.add(k); out.push(p); } });
+  return out.sort((x, y) => String(x.at || "").localeCompare(String(y.at || "")));
+}
+function restoreData(data, mode) {
+  if (!data || data.app !== "parivar-cafe" || typeof data.bookings !== "object" || !data.bookings) throw new Error("this is not a backup file from this app.");
+  const cur = mode === "replace" ? {} : load(BOOKINGS, {});
+  let added = 0, updated = 0, same = 0, skipped = 0;
+  Object.entries(data.bookings).forEach(([k, b]) => {
+    if (!b || typeof b.date !== "string" || typeof b.fp !== "string" || typeof b.total !== "number") { skipped++; return; }
+    const ex = cur[k];
+    if (!ex) { cur[k] = b; added++; return; }
+    if (JSON.stringify(ex) === JSON.stringify(b)) { same++; return; }
+    const win = String(b.savedAt || "") > String(ex.savedAt || "") ? b : ex, pays = mergePayments(ex.payments, b.payments);   // same booking: keep the newer details, and every payment from both
+    cur[k] = { ...win, ...(pays.length ? { payments: pays } : {}) }; updated++;
+  });
+  store(BOOKINGS, cur);
+  if (data.seq && data.seq.day) { const q = load(SEQ, { day: "", n: 0 }); if (data.seq.day > q.day || (data.seq.day === q.day && +data.seq.n > q.n)) store(SEQ, { day: data.seq.day, n: +data.seq.n || 0 }); }   // FP numbers keep moving forward
+  if (data.buffer != null) { try { localStorage.setItem("parivarCafe.buffer", data.buffer); } catch (e) {} }
+  const settings = !!(data.settings && typeof data.settings === "object" && store(SETTINGS_KEY, data.settings));   // organisation, logo and added menu items
+  renderBookings();
+  return { added, updated, same, skipped, settings, total: Object.keys(cur).length };
+}
+$("bkrestore").addEventListener("click", () => $("bkfile").click());
+$("bkfile").addEventListener("change", async () => {
+  const f = $("bkfile").files[0]; $("bkfile").value = ""; if (!f) return;
+  try {
+    const data = JSON.parse(await f.text());
+    if ($("bkmode").value === "replace" && !confirm("Replace ALL bookings on this device with the ones in this backup?")) return;
+    const r = restoreData(data, $("bkmode").value);
+    if (r.settings) setTimeout(() => location.reload(), 1600);
+    bkNote((r.settings ? "Settings restored, the page will reload. " : "") + `Restored: ${r.added} added, ${r.updated} updated${r.same ? ", " + r.same + " already there" : ""}${r.skipped ? ", " + r.skipped + " skipped" : ""}. ${r.total} booking${r.total === 1 ? "" : "s"} on this device now.`);
+  } catch (e) { bkNote("Could not restore: " + ((e instanceof SyntaxError) ? "the file is not a valid backup." : (e.message || "the file could not be read."))); }
+});
+ 
+/* ---------- owner settings screen ---------- */
+const closeSettings = () => { $("settings").classList.add("hide"); document.body.style.overflow = ""; };
+const curSettings = () => ({ org: SETTINGS.org, tagline: SETTINGS.tagline, logo: SETTINGS.logo || null, items: (SETTINGS.items || []).slice() });
+const catsFor = g => CATS[g === "bf" ? "bf" : g === "tea" ? "amt" : "lunch"];
+const setMsg = t => { $("set-msg").textContent = t; };
+let pendingLogo;   // undefined = logo unchanged, null = back to the default logo, text = a new logo
+function specLabel(sp) { return !sp || sp.t === "none" || !sp.v ? "dispatch not set" : sp.t === "g" ? `${sp.v} g per portion` : sp.t === "ml" ? `${sp.v} ml per portion` : sp.t === "pcs" ? `${sp.v} pcs per portion` : `${sp.v} pcs × ${sp.each} g per portion`; }
+function fillCats() { $("ni-cat").innerHTML = catsFor($("ni-grp").value).map(c => `<option>${esc(c[0])}</option>`).join(""); }
+function fillType() {
+  const t = $("ni-type").value;
+  $("ni-vl").classList.toggle("hide", t === "none"); $("ni-el").classList.toggle("hide", t !== "pcsg");
+  $("ni-vlt").textContent = t === "g" ? "Grams per portion" : t === "ml" ? "Millilitres per portion" : "Pieces per portion";
+}
+function renderNewItems() {
+  const items = SETTINGS.items || [], grpName = { bf: "Breakfast", tea: "AMT and PMT", full: "Lunch and Dinner" };
+  $("ni-list").innerHTML = items.length ? "<b style='font-size:.9rem'>Items added so far</b>" + items.map(it => `<div class="snap" data-id="${esc(it.id)}"><span>${esc(it.name)} <small style="color:#5b6b60">· ${esc(grpName[it.grp])} · ${esc(it.cat)}${+it.price > 0 ? " · extra ₹" + (+it.price) : ""} · ${esc(specLabel(it.spec))}</small></span><button type="button" class="line" data-rm="1" style="padding:4px 12px;font-size:.8rem">Delete</button></div>`).join("")
+    : "<p style='font-size:.85rem;color:#5b6b60;margin:4px 0'>No items added yet.</p>";
+}
+function openSettings() {
+  pendingLogo = undefined; $("set-org").value = ORG.name; $("set-tag").value = ORG.tagline; $("set-logo").src = $("hlogo").src;
+  fillCats(); fillType(); renderNewItems(); setMsg("");
+  $("settings").classList.remove("hide"); $("settings").scrollTop = 0; document.body.style.overflow = "hidden"; history.pushState({ s: 1 }, "");
+}
+const persistSettings = o => { if (store(SETTINGS_KEY, o)) return true; setMsg("Could not save: browser storage is full or blocked."); return false; };
+$("opensettings").addEventListener("click", openSettings);
+$("settop").addEventListener("click", goBack("s", closeSettings));
+$("ni-grp").addEventListener("change", fillCats);
+$("ni-type").addEventListener("change", fillType);
+$("set-pick").addEventListener("click", () => $("set-file").click());
+$("set-logo-reset").addEventListener("click", () => { pendingLogo = null; $("set-logo").src = "logo.png"; setMsg("The default logo will be used once you save."); });
+$("set-file").addEventListener("change", () => {
+  const f = $("set-file").files[0]; $("set-file").value = ""; if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    const im = new Image();
+    im.onload = () => {   // shrink big pictures so they stay small
+      const sc = Math.min(1, 500 / im.naturalWidth), c = document.createElement("canvas");
+      c.width = Math.max(1, Math.round(im.naturalWidth * sc)); c.height = Math.max(1, Math.round(im.naturalHeight * sc));
+      c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
+      pendingLogo = c.toDataURL("image/png"); $("set-logo").src = pendingLogo; setMsg("New logo ready. Tap Save name and logo.");
+    };
+    im.onerror = () => setMsg("That file could not be read as a picture.");
+    im.src = rd.result;
+  };
+  rd.readAsDataURL(f);
+});
+$("set-save-org").addEventListener("click", () => {
+  const o = curSettings(); o.org = $("set-org").value.trim() || "Parivar Cafe"; o.tagline = $("set-tag").value.trim();
+  if (pendingLogo !== undefined) o.logo = pendingLogo;
+  if (persistSettings(o)) { setMsg("Saved. Reloading…"); setTimeout(() => location.reload(), 500); }
+});
+$("ni-add").addEventListener("click", () => {
+  const grp = $("ni-grp").value, cat = $("ni-cat").value, name = $("ni-name").value.trim(), type = $("ni-type").value, val = +$("ni-val").value, each = +$("ni-each").value;
+  if (!name) { setMsg("Type the item name."); $("ni-name").focus(); return; }
+  if (catsFor(grp).some(c => c[1].some(x => x.toLowerCase() === name.toLowerCase()))) { setMsg("That item is already in this menu."); return; }
+  if (type !== "none" && !(val > 0)) { setMsg("Enter the dispatch quantity per portion (or choose Not set yet)."); return; }
+  if (type === "pcsg" && !(each > 0)) { setMsg("Enter the grams per piece."); return; }
+  const o = curSettings();
+  o.items.push({ id: Date.now(), grp, cat, name, price: Math.max(0, +$("ni-price").value || 0), spec: type === "none" ? { t: "none" } : { t: type, v: val, ...(type === "pcsg" ? { each } : {}) } });
+  if (persistSettings(o)) { setMsg(`Added "${name}". Reloading…`); setTimeout(() => location.reload(), 600); }
+});
+$("ni-list").addEventListener("click", e => {
+  const row = e.target.closest(".snap"); if (!row || !e.target.dataset.rm) return;
+  const o = curSettings(); o.items = o.items.filter(it => String(it.id) !== row.dataset.id);
+  if (confirm("Delete this menu item?") && persistSettings(o)) { setMsg("Deleted. Reloading…"); setTimeout(() => location.reload(), 500); }
+});
+$("set-export").addEventListener("click", () => { download(new Blob(["window.PARIVAR_SETTINGS = " + JSON.stringify(curSettings(), null, 2) + ";\n"], { type: "text/javascript" }), "settings.js"); setMsg("settings.js downloaded. Upload it to GitHub next to index.html to show these settings on every device."); });
+$("set-reset").addEventListener("click", () => { if (confirm("Remove the settings saved on this device and use the published settings?")) { try { localStorage.removeItem(SETTINGS_KEY); } catch (e) {} location.reload(); } });
+ 
+/* ---------- daily backup at midnight ---------- */
+/* A web page can only act while it is open: at midnight if it is open, otherwise the first time it is opened afterwards.
+   Each day's copy of all bookings and payments is kept on the device (the last 31 days; days with no change take almost no space). */
+const SNAP = "parivarCafe.snapshots", BKSET = "parivarCafe.backupSettings", KEEP_DAYS = 31;
+const bkSettings = () => ({ auto: false, lastFile: "", lastManual: "", ...load(BKSET, {}) });
+const shiftDay = (d, n) => { const x = new Date(d + "T00:00"); x.setDate(x.getDate() + n); return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`; };
+const snapJson = (snaps, s) => s.json || ((snaps.find(x => x.day === s.ref) || {}).json) || null;
+function trimSnaps(snaps) {
+  while (snaps.length > KEEP_DAYS) {
+    const o = snaps.shift();
+    if (o.json && snaps[0]) { if (!snaps[0].json) { snaps[0].json = o.json; delete snaps[0].ref; } snaps.forEach(x => { if (x.ref === o.day) x.ref = snaps[0].day; }); }
+  }
+  return snaps;
+}
+function takeSnapshot(day) {   // all bookings as they stood at the end of `day`
+  const bookings = load(BOOKINGS, {}), n = Object.keys(bookings).length;
+  if (!n) return false;
+  let snaps = load(SNAP, []).filter(x => x.day !== day).sort((a, b) => a.day.localeCompare(b.day));
+  const json = JSON.stringify(bookings), prev = snaps.filter(x => x.day < day).pop(), at = new Date().toISOString();
+  snaps.push(prev && snapJson(snaps, prev) === json ? { day, at, n, ref: prev.json ? prev.day : prev.ref } : { day, at, n, json });
+  snaps.sort((a, b) => a.day.localeCompare(b.day)); trimSnaps(snaps);
+  for (let t = 0; t < 6 && !store(SNAP, snaps); t++) { if (snaps.length < 2) return false; snaps.shift(); const f = snaps[0]; if (!f.json) { f.json = snapJson(snaps, f) || json; delete f.ref; } }   // storage full: drop the oldest day
+  return true;
+}
+function dailyRun(tOverride) {
+  const t = tOverride || todayStr(), y = shiftDay(t, -1);
+  if (!load(SNAP, []).some(x => x.day === y)) takeSnapshot(y);
+  const st = bkSettings();
+  if (st.auto && st.lastFile < t && Object.keys(load(BOOKINGS, {})).length) { const b = backupFile(y); download(b.blob, b.name); st.lastFile = t; store(BKSET, st); }
+  renderBackupInfo(t);
+}
+function renderBackupInfo(t) {
+  const today = t || todayStr(), snaps = load(SNAP, []), st = bkSettings(), last = snaps[snaps.length - 1], hasData = Object.keys(load(BOOKINGS, {})).length > 0;
+  const lastFile = [st.lastFile, st.lastManual].sort().pop();
+  $("bkauto").checked = !!st.auto;
+  $("bkinfo").textContent = `Daily backups on this device: ${snaps.length}` + (last ? ` (latest: end of ${last.day})` : "") + (lastFile ? ` · Last backup file: ${lastFile}` : " · No backup file saved yet") +
+    (hasData && (!lastFile || lastFile < shiftDay(today, -7)) ? " · Reminder: save a backup file now (Backup bookings) so a copy is outside this browser." : "");
+  $("snaplist").innerHTML = snaps.length ? snaps.slice().reverse().map(x => `<div class="snap" data-d="${esc(x.day)}"><span>End of ${esc(x.day)} · ${x.n} booking${x.n === 1 ? "" : "s"}</span><span><button type="button" class="line" data-sn="dl">Download</button><button type="button" class="line" data-sn="rs">Restore</button></span></div>`).join("")
+    : "<p style='margin:6px 0;font-size:.85rem'>No daily backups yet. The first one is made at midnight, or when the page is next opened.</p>";
+}
+$("snaplist").addEventListener("click", e => {
+  const row = e.target.closest(".snap"), act = e.target.dataset.sn; if (!row || !act) return;
+  const snaps = load(SNAP, []), sn = snaps.find(x => x.day === row.dataset.d), json = sn && snapJson(snaps, sn);
+  if (!json) { bkNote("That daily backup could not be read."); return; }
+  const bookings = JSON.parse(json);
+  if (act === "dl") { const blob = new Blob([JSON.stringify({ app: "parivar-cafe", version: 1, exportedAt: sn.at, bookings, seq: load(SEQ, null), buffer: null }, null, 2)], { type: "application/json" }); download(blob, `parivar-cafe-backup-${sn.day}.json`); bkNote(`Downloaded the backup for the end of ${sn.day}.`, blob, `parivar-cafe-backup-${sn.day}.json`); return; }
+  if ($("bkmode").value === "replace" && !confirm(`Replace ALL bookings on this device with the backup from the end of ${sn.day}?`)) return;
+  const r = restoreData({ app: "parivar-cafe", bookings }, $("bkmode").value);
+  bkNote(`Restored the backup from the end of ${sn.day}: ${r.added} added, ${r.updated} updated. ${r.total} booking${r.total === 1 ? "" : "s"} on this device now.`);
+});
+$("bkauto").addEventListener("change", () => { const st = bkSettings(); st.auto = $("bkauto").checked; store(BKSET, st); renderBackupInfo(); });
+function scheduleMidnight() { const n = new Date(), next = new Date(n.getFullYear(), n.getMonth(), n.getDate() + 1, 0, 0, 3); setTimeout(() => { dailyRun(); scheduleMidnight(); }, next - n); }
+document.addEventListener("visibilitychange", () => { if (!document.hidden) dailyRun(); });   // phones pause timers while asleep: catch up when the page is shown again
+try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}   // ask the browser not to clear this data
+ 
+apply(load(DRAFT, null));
+saveDraft();
+renderBookings();
+dailyRun();
+scheduleMidnight();
+</script>
+</body>
+</html
